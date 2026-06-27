@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buyer Dashboard — HomesMenu | Your Home Search, Visits & Rewards</title>
+  <meta name="description" content="Your HomesMenu buyer dashboard — track saved properties, scheduled site visits, referral rewards and your wallet balance, plus homes recommended just for you.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%232f8451'/%3E%3Cpath d='M5 11l7-6 7 6v7a1 1 0 0 1-1 1h-3v-5h-6v5H6a1 1 0 0 1-1-1z' fill='white'/%3E%3C/svg%3E">
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar">
+      <a href="index.html" class="brand">
+        <span class="brand-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5"/></svg></span>
+        Property<b>Mitra</b>
+      </a>
+
+      <div class="side-section">Workspace</div>
+      <a href="dashboard-buyer.html" class="side-link active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+        Dashboard
+      </a>
+      <a href="properties.html" class="side-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        Search
+      </a>
+      <a href="properties.html" class="side-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+        Saved
+        <span class="tag">12</span>
+      </a>
+      <a href="virtual-visit.html" class="side-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>
+        Site Visits
+        <span class="tag">3</span>
+      </a>
+      <a href="#" class="side-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Messages
+      </a>
+
+      <div class="side-section">Account</div>
+      <a href="refer-earn.html" class="side-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1L12 16.8 5.7 21l2.3-7.1-6-4.5h7.6z"/></svg>
+        Refer &amp; Earn
+        <span class="tag">8</span>
+      </a>
+      <a href="profile.html" class="side-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+        My Profile
+      </a>
+
+      <div class="side-foot">
+        <div class="card card-pad reveal" style="margin-top:18px;background:var(--grad-dark);color:#fff;border:none;position:relative;overflow:hidden;isolation:isolate;padding:20px">
+          <div class="aurora"><span class="b2" style="opacity:.4"></span><span class="b4" style="opacity:.4"></span></div>
+          <div style="position:relative;z-index:2">
+            <span class="badge badge-glass mb-2"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1L12 16.8 5.7 21l2.3-7.1-6-4.5h7.6z"/></svg>Wallet</span>
+            <div style="font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:#fff">₹55,500</div>
+            <p style="color:rgba(255,255,255,.7);font-size:.8rem;margin-bottom:14px">Available to withdraw</p>
+            <a href="refer-earn.html" class="btn btn-glass btn-sm btn-block">Open wallet</a>
+          </div>
+        </div>
+        <a href="login.html" class="side-link" style="margin-top:6px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5M21 12H9"/></svg>
+          Log out
+        </a>
+      </div>
+    </aside>
+
+    <!-- ============ MAIN ============ -->
+    <div class="app-main">
+
+      <!-- topbar -->
+      <header class="topbar">
+        <button class="nav-toggle" aria-label="Open menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+        <div class="search input-group">
+          <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span>
+          <input class="input" type="search" placeholder="Search city, locality or project…" aria-label="Search properties">
+        </div>
+        <div class="spacer"></div>
+        <button class="icon-btn" aria-label="Notifications"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span class="dot"></span></button>
+        <button class="icon-btn" aria-label="Messages"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></button>
+        <a href="profile.html" class="avatar" title="Rahul Khanna" aria-label="Your profile, Rahul Khanna">RK</a>
+      </header>
+
+      <!-- content -->
+      <main class="app-content">
+
+        <!-- page title -->
+        <div class="page-title reveal in">
+          <div>
+            <h1>Welcome back, Rahul 👋</h1>
+            <p>Here's what's happening with your home search</p>
+          </div>
+          <a href="properties.html" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+            Browse Properties
+          </a>
+        </div>
+
+        <!-- KPI row -->
+        <div class="grid grid-4 mb-4">
+          <div class="kpi reveal">
+            <div class="ic ic-brand"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
+            <div class="label">Saved Properties</div>
+            <div class="value"><span data-count="12">0</span></div>
+            <div class="delta up"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg>+3 this week</div>
+          </div>
+          <div class="kpi reveal reveal-d1">
+            <div class="ic ic-accent"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg></div>
+            <div class="label">Scheduled Visits</div>
+            <div class="value"><span data-count="3">0</span></div>
+            <div class="delta up"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg>1 tomorrow</div>
+          </div>
+          <div class="kpi reveal reveal-d2">
+            <div class="ic ic-pink"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18a4 4 0 0 0-8 0"/><circle cx="12" cy="7" r="4"/><path d="M20 18a4 4 0 0 0-3-3.8M4 18a4 4 0 0 1 3-3.8"/></svg></div>
+            <div class="label">Active Referrals</div>
+            <div class="value"><span data-count="8">0</span></div>
+            <div class="delta up"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg>+2 pending</div>
+          </div>
+          <div class="kpi reveal reveal-d3">
+            <div class="ic ic-gold"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20"/><path d="M16 14h2"/></svg></div>
+            <div class="label">Wallet Balance</div>
+            <div class="value">₹<span data-count="55500">0</span></div>
+            <div class="delta up"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg>+₹25,000 last reward</div>
+          </div>
+        </div>
+
+        <!-- two-column layout -->
+        <div class="grid" style="grid-template-columns:1.6fr 1fr;gap:24px;align-items:start">
+
+          <!-- LEFT column -->
+          <div style="display:flex;flex-direction:column;gap:24px;min-width:0">
+
+            <!-- Recommended -->
+            <section>
+              <div class="flex items-center justify-between mb-3 wrap gap-2">
+                <div>
+                  <span class="eyebrow reveal"><span class="dot"></span>Picked for you</span>
+                  <h3 class="h3 mt-2 reveal reveal-d1">Recommended for you</h3>
+                </div>
+                <a href="properties.html" class="btn btn-ghost btn-sm reveal reveal-d2">View all <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+              <div class="grid grid-2" data-props="4" data-featured></div>
+            </section>
+
+            <!-- Saved shortlist -->
+            <section>
+              <div class="flex items-center justify-between mb-3 wrap gap-2">
+                <h3 class="h3 reveal">Your saved shortlist</h3>
+                <a href="properties.html" class="btn btn-soft btn-sm reveal reveal-d1">Manage saved</a>
+              </div>
+              <div class="table-wrap reveal reveal-d1">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Property</th>
+                      <th>Location</th>
+                      <th>Price</th>
+                      <th style="text-align:right">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="shortlist"></tbody>
+                </table>
+              </div>
+            </section>
+
+          </div>
+
+          <!-- RIGHT column -->
+          <div style="display:flex;flex-direction:column;gap:24px;min-width:0">
+
+            <!-- Upcoming site visits -->
+            <div class="card card-pad reveal">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="h3">Upcoming site visits</h3>
+                <span class="badge badge-soft">3 booked</span>
+              </div>
+              <div class="timeline">
+                <div class="tl-item active">
+                  <div class="flex items-center justify-between gap-2">
+                    <div>
+                      <div style="font-weight:600">Skyline Heights</div>
+                      <div class="muted" style="font-size:.85rem">3 BHK · Bandra West, Mumbai</div>
+                    </div>
+                    <span class="badge badge-brand">Sat 10 AM</span>
+                  </div>
+                </div>
+                <div class="tl-item">
+                  <div class="flex items-center justify-between gap-2">
+                    <div>
+                      <div style="font-weight:600">Green Valley Residency</div>
+                      <div class="muted" style="font-size:.85rem">2 BHK · Whitefield, Bengaluru</div>
+                    </div>
+                    <span class="badge badge-soft">Sun 12 PM</span>
+                  </div>
+                </div>
+                <div class="tl-item">
+                  <div class="flex items-center justify-between gap-2">
+                    <div>
+                      <div style="font-weight:600">Marine Crest</div>
+                      <div class="muted" style="font-size:.85rem">2 BHK Sea-View · Worli, Mumbai</div>
+                    </div>
+                    <span class="badge badge-soft">Next week</span>
+                  </div>
+                </div>
+              </div>
+              <a href="virtual-visit.html" class="btn btn-ghost btn-sm btn-block mt-2">Schedule a new visit</a>
+            </div>
+
+            <!-- Refer & Earn mini card -->
+            <div class="card card-pad reveal reveal-d1" style="background:var(--brand-50);border-color:var(--brand-100)">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="ic ic-brand" style="width:40px;height:40px;border-radius:12px;display:grid;place-items:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1L12 16.8 5.7 21l2.3-7.1-6-4.5h7.6z"/></svg></span>
+                <div>
+                  <div style="font-weight:700">Refer &amp; Earn</div>
+                  <div class="muted" style="font-size:.82rem">Earn ₹25,000 per friend who buys</div>
+                </div>
+              </div>
+              <div class="ref-code mt-1" style="padding:12px 16px">
+                <span class="code" style="font-size:1.3rem">ABCD1234</span>
+                <button class="btn btn-soft btn-sm" data-copy="ABCD1234" aria-label="Copy referral code"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy</button>
+              </div>
+              <div class="flex items-center justify-between mt-3 gap-2 wrap">
+                <div>
+                  <div class="muted" style="font-size:.8rem">Total earned</div>
+                  <div style="font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:var(--brand-700)">₹55,500</div>
+                </div>
+                <a href="refer-earn.html" class="btn btn-primary btn-sm">Refer now</a>
+              </div>
+            </div>
+
+            <!-- Recent searches -->
+            <div class="card card-pad reveal reveal-d2">
+              <h3 class="h3 mb-2">Recent searches</h3>
+              <div class="chip-row">
+                <a href="properties.html" class="chip">3 BHK in Mumbai</a>
+                <a href="properties.html" class="chip">Villas in Hyderabad</a>
+                <a href="properties.html" class="chip">Under ₹1 Cr Pune</a>
+                <a href="properties.html" class="chip">Sea View Worli</a>
+                <a href="virtual-visit.html" class="chip">Homes with 360° Tour</a>
+                <a href="properties.html" class="chip">Gurugram Builder Floor</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // Render the saved shortlist (3 properties) from shared mock data
+    (function () {
+      var D = window.HM_DATA;
+      if (!D) return;
+      var saved = D.PROPERTIES.slice(0, 3);
+      var rows = saved.map(function (p) {
+        return '<tr>' +
+          '<td><div class="cell-prop">' +
+            '<img src="' + D.coverImg(p) + '" data-seed="' + p.seed + '" data-label="' + p.type + '" onerror="hmImgFallback(this)" alt="' + p.title + ' in ' + p.loc + '">' +
+            '<div><div style="font-weight:600">' + p.title + '</div>' +
+            '<div class="muted" style="font-size:.78rem">' + p.project + '</div></div>' +
+          '</div></td>' +
+          '<td class="muted">' + p.loc + '</td>' +
+          '<td style="font-weight:700">' + p.price + '</td>' +
+          '<td style="text-align:right;white-space:nowrap">' +
+            '<a href="property-details.html" class="btn btn-soft btn-sm">View</a> ' +
+            '<button class="btn btn-ghost btn-sm" data-remove aria-label="Remove from shortlist">Remove</button>' +
+          '</td>' +
+        '</tr>';
+      }).join('');
+      var body = document.getElementById('shortlist');
+      if (body) body.innerHTML = rows;
+      // Wire up remove buttons -> toast + row removal
+      document.querySelectorAll('#shortlist [data-remove]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var tr = btn.closest('tr');
+          if (tr) tr.remove();
+          if (window.hmToast) window.hmToast('Removed from shortlist');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

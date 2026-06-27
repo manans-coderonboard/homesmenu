@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seller Dashboard — Listings, Leads &amp; Sales | HomesMenu</title>
+  <meta name="description" content="Manage your HomesMenu seller account: add properties, track listings and views, see leads received in real time, follow each property's status and review your sold deals.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%232f8451'/%3E%3Cpath d='M5 11l7-6 7 6v7a1 1 0 0 1-1 1h-3v-5h-6v5H6a1 1 0 0 1-1-1z' fill='white'/%3E%3C/svg%3E">
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar">
+      <a href="index.html" class="brand">
+        <span class="brand-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5"/></svg></span>
+        <span>Property<b>Mitra</b></span>
+      </a>
+
+      <div class="side-section">Workspace</div>
+      <a href="dashboard-seller.html" class="side-link active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+        Dashboard
+      </a>
+      <a href="add-property.html" class="side-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+        Add Property
+      </a>
+      <a href="dashboard-seller.html" class="side-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5"/><path d="M5 9v11h14V9"/><path d="M9 21v-6h6v6"/></svg>
+        My Properties
+        <span class="tag">6</span>
+      </a>
+      <a href="dashboard-seller.html" class="side-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Leads
+        <span class="tag badge badge-soft">18</span>
+      </a>
+      <a href="#" class="side-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Messages
+        <span class="tag badge badge-brand">3</span>
+      </a>
+
+      <div class="side-section">Account</div>
+      <a href="refer-earn.html" class="side-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1L12 16.8 5.7 21l2.3-7.1-6-4.5h7.6z"/></svg>
+        Refer &amp; Earn
+      </a>
+      <a href="profile.html" class="side-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg>
+        My Profile
+      </a>
+
+      <div class="side-foot">
+        <div class="card card-pad" style="padding:18px;background:var(--grad-dark);color:#fff;border:none;position:relative;overflow:hidden;isolation:isolate">
+          <div class="aurora"><span class="b2" style="opacity:.4"></span><span class="b4" style="opacity:.4"></span></div>
+          <div style="position:relative;z-index:2">
+            <span class="badge badge-glass mb-2"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1L12 16.8 5.7 21l2.3-7.1-6-4.5h7.6z"/></svg>Boost</span>
+            <div style="font-family:var(--font-display);font-weight:700;font-size:1.05rem;line-height:1.2">Feature your listing</div>
+            <p class="muted" style="color:rgba(255,255,255,.72);font-size:.82rem;margin-top:6px">Get 4× more leads with a Premium spotlight on top of search.</p>
+            <a href="#" class="btn btn-glass btn-sm btn-block mt-2">Upgrade</a>
+          </div>
+        </div>
+        <a href="login.html" class="side-link mt-1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>
+          Log out
+        </a>
+      </div>
+    </aside>
+
+    <!-- ============ MAIN ============ -->
+    <div class="app-main">
+
+      <!-- topbar -->
+      <header class="topbar">
+        <button class="nav-toggle" aria-label="Open menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+        <div class="search input-group">
+          <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span>
+          <input class="input" type="search" placeholder="Search your properties, leads or buyers…" aria-label="Search">
+        </div>
+        <div class="spacer"></div>
+        <button class="icon-btn" aria-label="Notifications"><span class="dot"></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></button>
+        <button class="icon-btn" aria-label="Messages"><span class="dot"></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></button>
+        <a href="profile.html" class="avatar" title="Sneha Patil" aria-label="Your profile, Sneha Patil">SP</a>
+      </header>
+
+      <!-- content -->
+      <main class="app-content">
+
+        <!-- page title -->
+        <div class="page-title reveal in">
+          <div>
+            <span class="eyebrow"><span class="dot"></span>Seller Workspace</span>
+            <h1 class="mt-2">Seller Dashboard</h1>
+            <p>Welcome back, Sneha — track your listings, leads and sales all in one place.</p>
+          </div>
+          <a href="add-property.html" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+            Add Property
+          </a>
+        </div>
+
+        <!-- KPI row -->
+        <section class="grid grid-4 mb-4">
+          <div class="kpi reveal">
+            <div class="ic ic-brand"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5"/><path d="M5 9v11h14V9"/><path d="M9 21v-6h6v6"/></svg></div>
+            <div class="label">Total Listings</div>
+            <div class="value"><span data-count="6">0</span></div>
+            <div class="delta up"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>+2 this month</div>
+          </div>
+          <div class="kpi reveal reveal-d1">
+            <div class="ic ic-pink"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="label">Active Leads</div>
+            <div class="value"><span data-count="18">0</span></div>
+            <div class="delta up"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>+5 this week</div>
+          </div>
+          <div class="kpi reveal reveal-d2">
+            <div class="ic ic-accent"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <div class="label">Total Views</div>
+            <div class="value"><span data-count="2430">0</span></div>
+            <div class="delta up"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>+18% vs last month</div>
+          </div>
+          <div class="kpi reveal reveal-d3">
+            <div class="ic ic-success"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.5L12 20l-2-2"/><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
+            <div class="label">Sold Properties</div>
+            <div class="value"><span data-count="4">0</span></div>
+            <div class="delta up"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>₹6.8 Cr value</div>
+          </div>
+        </section>
+
+        <!-- My Properties table -->
+        <section class="reveal mb-4">
+          <div class="flex items-center justify-between mb-2 wrap gap-2">
+            <div>
+              <h2 class="h3">My Properties</h2>
+              <p class="muted" style="font-size:.9rem">Your active and recently closed listings.</p>
+            </div>
+            <div class="chip-row" data-chip-group>
+              <span class="chip active">All</span>
+              <span class="chip">Active</span>
+              <span class="chip">Under Offer</span>
+              <span class="chip">Sold</span>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Property</th>
+                  <th>Price</th>
+                  <th>Views</th>
+                  <th>Leads</th>
+                  <th>Status</th>
+                  <th style="text-align:right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="propRows">
+                <!-- rows injected via inline script -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- two-column: Leads Received + Property Status -->
+        <section class="grid" style="grid-template-columns:1.5fr 1fr;align-items:start">
+
+          <!-- LEFT: Leads Received -->
+          <div class="reveal">
+            <div class="flex items-center justify-between mb-2 wrap gap-2">
+              <div>
+                <h2 class="h3">Leads Received</h2>
+                <p class="muted" style="font-size:.9rem">Buyers who enquired on your listings.</p>
+              </div>
+              <a href="dashboard-seller.html" class="btn btn-ghost btn-sm">View all <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Buyer</th>
+                    <th>Interested In</th>
+                    <th>Via</th>
+                    <th>Status</th>
+                    <th style="text-align:right">Contact</th>
+                  </tr>
+                </thead>
+                <tbody id="leadRows">
+                  <!-- rows injected via inline script -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- RIGHT: Property status + Sold summary -->
+          <div class="reveal reveal-d1" style="display:flex;flex-direction:column;gap:24px">
+
+            <!-- timeline card -->
+            <div class="card card-pad">
+              <div class="flex items-center justify-between mb-1 wrap gap-1">
+                <h2 class="h3" style="font-size:1.2rem">Property Status</h2>
+                <span class="badge badge-warn">Under Offer</span>
+              </div>
+              <div class="cell-prop mb-3" style="margin-top:14px">
+                <img id="statusImg" alt="3 BHK Luxury Apartment, Skyline Heights">
+                <div>
+                  <div style="font-weight:600;font-size:.96rem">3 BHK Luxury Apartment</div>
+                  <div class="prop-loc" style="font-size:.82rem"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Skyline Heights, Bandra West</div>
+                </div>
+              </div>
+              <div class="timeline">
+                <div class="tl-item done">
+                  <div style="font-weight:600;font-size:.92rem">Listed</div>
+                  <div class="muted" style="font-size:.82rem">Published &amp; live on HomesMenu · 28 Apr</div>
+                </div>
+                <div class="tl-item done">
+                  <div style="font-weight:600;font-size:.92rem">Verified</div>
+                  <div class="muted" style="font-size:.82rem">RERA documents approved · 30 Apr</div>
+                </div>
+                <div class="tl-item done">
+                  <div style="font-weight:600;font-size:.92rem">Leads Coming In</div>
+                  <div class="muted" style="font-size:.82rem">12 enquiries received · May</div>
+                </div>
+                <div class="tl-item done">
+                  <div style="font-weight:600;font-size:.92rem">Site Visits</div>
+                  <div class="muted" style="font-size:.82rem">5 visits scheduled, 4 completed</div>
+                </div>
+                <div class="tl-item active">
+                  <div style="font-weight:600;font-size:.92rem">Under Offer</div>
+                  <div class="muted" style="font-size:.82rem">Negotiating with Karan Malhotra · now</div>
+                </div>
+                <div class="tl-item">
+                  <div style="font-weight:600;font-size:.92rem">Sold</div>
+                  <div class="muted" style="font-size:.82rem">Awaiting deal closure</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- sold properties summary -->
+            <div class="card card-pad" style="background:linear-gradient(160deg,#fff,var(--bg-soft));position:relative;overflow:hidden">
+              <div class="flex items-center justify-between mb-2">
+                <h2 class="h3" style="font-size:1.2rem">Sold Properties</h2>
+                <span class="badge badge-success"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Closed</span>
+              </div>
+              <div class="flex gap-3 wrap">
+                <div>
+                  <div style="font-family:var(--font-display);font-size:1.9rem;font-weight:700;line-height:1"><span data-count="4">0</span></div>
+                  <div class="muted" style="font-size:.82rem">Deals closed</div>
+                </div>
+                <div>
+                  <div style="font-family:var(--font-display);font-size:1.9rem;font-weight:700;line-height:1" class="gradient-text">₹6.8 Cr</div>
+                  <div class="muted" style="font-size:.82rem">Total sold value</div>
+                </div>
+              </div>
+              <div class="mt-3 mb-1 flex items-center justify-between" style="font-size:.82rem">
+                <span class="muted">Sales target this quarter</span>
+                <span style="font-weight:600">68%</span>
+              </div>
+              <div class="progress"><span style="width:68%"></span></div>
+              <a href="dashboard-seller.html" class="btn btn-soft btn-sm btn-block mt-3">View sold history</a>
+            </div>
+
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- mobile drawer (sidebar mirror) -->
+  <div class="drawer">
+    <div class="drawer-bg"></div>
+    <aside class="drawer-panel">
+      <div class="flex items-center justify-between mb-2">
+        <span class="brand"><span class="brand-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8"/><path d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5"/></svg></span> Property<b>Mitra</b></span>
+        <button class="icon-btn" data-drawer-close aria-label="Close menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+      </div>
+      <a href="dashboard-seller.html">Dashboard</a>
+      <a href="add-property.html">Add Property</a>
+      <a href="dashboard-seller.html">My Properties</a>
+      <a href="dashboard-seller.html">Leads</a>
+      <a href="#">Messages</a>
+      <hr class="divider">
+      <a href="refer-earn.html">Refer &amp; Earn</a>
+      <a href="profile.html">My Profile</a>
+      <a href="login.html" class="btn btn-ghost btn-block mt-1">Log out</a>
+    </aside>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    (function () {
+      var D = window.HM_DATA;
+      if (!D) return;
+
+      /* ---- My Properties: status-badge map ---- */
+      var statusBadge = {
+        'Active':       'badge-success',
+        'Under Offer':  'badge-warn',
+        'Sold':         'badge-soft'
+      };
+
+      /* Seller's own portfolio (Sneha Patil — "SP"). Reuse HM_DATA seeds/titles. */
+      var myProps = [
+        { p: D.PROPERTIES[0], price: '₹2.45 Cr', views: 642, leads: 12, status: 'Under Offer' },
+        { p: D.PROPERTIES[3], price: '₹62 Lakh', views: 410, leads: 4,  status: 'Active' },
+        { p: D.PROPERTIES[1], price: '₹95 Lakh', views: 528, leads: 6,  status: 'Active' },
+        { p: D.PROPERTIES[7], price: '₹2.10 Cr', views: 388, leads: 5,  status: 'Active' },
+        { p: D.PROPERTIES[4], price: '₹1.65 Cr', views: 462, leads: 8,  status: 'Sold' }
+      ];
+
+      var editSvg = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>';
+      var viewSvg = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>';
+
+      document.getElementById('propRows').innerHTML = myProps.map(function (r) {
+        var loc = r.p.loc.split(',')[0];
+        return '<tr>' +
+          '<td><div class="cell-prop">' +
+            '<img src="' + D.coverImg(r.p) + '" data-seed="' + r.p.seed + '" data-label="' + r.p.type + '" onerror="hmImgFallback(this)" alt="' + r.p.title + '">' +
+            '<div><div style="font-weight:600">' + r.p.title + '</div>' +
+            '<div class="prop-loc" style="font-size:.8rem">' + r.p.loc + '</div></div>' +
+          '</div></td>' +
+          '<td style="font-weight:600">' + r.price + '</td>' +
+          '<td>' + r.views.toLocaleString('en-IN') + '</td>' +
+          '<td>' + r.leads + '</td>' +
+          '<td><span class="badge ' + statusBadge[r.status] + '">' + r.status + '</span></td>' +
+          '<td><div class="flex gap-1" style="justify-content:flex-end">' +
+            '<a href="add-property.html" class="icon-btn" style="width:36px;height:36px" aria-label="Edit ' + r.p.title + '">' + editSvg + '</a>' +
+            '<a href="property-details.html" class="icon-btn" style="width:36px;height:36px" aria-label="View ' + r.p.title + '">' + viewSvg + '</a>' +
+          '</div></td>' +
+        '</tr>';
+      }).join('');
+
+      /* ---- Leads Received from HM_DATA.LEADS ---- */
+      var leadBadge = {
+        'New':         'badge-brand',
+        'Contacted':   'badge-soft',
+        'Site Visit':  'badge-accent',
+        'Negotiating': 'badge-warn',
+        'Closed':      'badge-success'
+      };
+      var viaBadge = {
+        'Search':       'badge-soft',
+        'Refer & Earn': 'badge-gold',
+        'Virtual Tour': 'badge-accent'
+      };
+      var avSeed = 0;
+      var callSvg = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.5a16 16 0 0 0 6 6l1.1-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>';
+      var chatSvg = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>';
+
+      document.getElementById('leadRows').innerHTML = D.LEADS.map(function (l) {
+        avSeed++;
+        return '<tr>' +
+          '<td><div class="cell-prop">' +
+            '<img src="' + D.avatarImg(l.init, avSeed) + '" alt="' + l.name + '" style="width:40px;height:40px;border-radius:50%">' +
+            '<div><div style="font-weight:600">' + l.name + '</div>' +
+            '<div class="muted" style="font-size:.78rem">' + l.when + '</div></div>' +
+          '</div></td>' +
+          '<td>' + l.prop + '</td>' +
+          '<td><span class="badge ' + (viaBadge[l.via] || 'badge-soft') + '">' + l.via + '</span></td>' +
+          '<td><span class="badge ' + (leadBadge[l.status] || 'badge-soft') + '">' + l.status + '</span></td>' +
+          '<td><div class="flex gap-1" style="justify-content:flex-end">' +
+            '<button class="icon-btn" style="width:36px;height:36px" aria-label="Call ' + l.name + '">' + callSvg + '</button>' +
+            '<button class="icon-btn" style="width:36px;height:36px" aria-label="Chat with ' + l.name + '">' + chatSvg + '</button>' +
+          '</div></td>' +
+        '</tr>';
+      }).join('');
+
+      /* ---- Property-status card image ---- */
+      var si = document.getElementById('statusImg');
+      if (si) { si.dataset.seed = 0; si.dataset.label = 'Skyline Heights'; si.setAttribute('onerror', 'hmImgFallback(this)'); si.src = D.assetImg('master-bedroom.jpg'); }
+    })();
+  </script>
+</body>
+</html>

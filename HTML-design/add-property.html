@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add a New Property — List Your Home | HomesMenu</title>
+  <meta name="description" content="List your property on HomesMenu in minutes. Add photos, a 360° virtual tour and amenities, then publish to start receiving verified buyer leads instantly.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%232f8451'/%3E%3Cpath d='M5 11l7-6 7 6v7a1 1 0 0 1-1 1h-3v-5h-6v5H6a1 1 0 0 1-1-1z' fill='white'/%3E%3C/svg%3E">
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- ============ SIDEBAR (Seller) ============ -->
+    <aside class="sidebar">
+      <a href="index.html" class="brand">
+        <span class="brand-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5"/></svg></span>
+        <span>Property<b>Mitra</b></span>
+      </a>
+
+      <div class="side-section">Workspace</div>
+      <a href="dashboard-seller.html" class="side-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+        Dashboard
+      </a>
+      <a href="add-property.html" class="side-link active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+        Add Property
+      </a>
+      <a href="dashboard-seller.html" class="side-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5"/><path d="M5 9v11h14V9"/><path d="M9 21v-6h6v6"/></svg>
+        My Properties
+        <span class="tag">6</span>
+      </a>
+      <a href="dashboard-seller.html" class="side-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Leads
+        <span class="tag">12</span>
+      </a>
+      <a href="#" class="side-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Messages
+        <span class="tag">3</span>
+      </a>
+
+      <div class="side-section">Account</div>
+      <a href="refer-earn.html" class="side-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1L12 16.8 5.7 21l2.3-7.1-6-4.5h7.6z"/></svg>
+        Refer &amp; Earn
+      </a>
+      <a href="profile.html" class="side-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg>
+        My Profile
+      </a>
+
+      <div class="side-foot">
+        <div class="card card-pad reveal in" style="padding:18px;background:var(--grad-dark);color:#fff;border:none;position:relative;overflow:hidden;isolation:isolate">
+          <div class="aurora"><span class="b2" style="opacity:.4"></span><span class="b4" style="opacity:.4"></span></div>
+          <div style="position:relative;z-index:2">
+            <span class="badge badge-glass mb-2"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1L12 16.8 5.7 21l2.3-7.1-6-4.5h7.6z"/></svg>Boost</span>
+            <div style="font-family:var(--font-display);font-weight:700;font-size:1.02rem">Feature this listing</div>
+            <p style="color:rgba(255,255,255,.72);font-size:.82rem;margin-top:4px">Get 5× more views &amp; reach the top of search.</p>
+            <a href="#" class="btn btn-glass btn-sm btn-block mt-2">Upgrade</a>
+          </div>
+        </div>
+        <a href="login.html" class="side-link mt-1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5M21 12H9"/></svg>
+          Log out
+        </a>
+      </div>
+    </aside>
+
+    <!-- ============ MAIN ============ -->
+    <div class="app-main">
+
+      <!-- topbar -->
+      <header class="topbar">
+        <button class="nav-toggle" aria-label="Open menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+        <label class="search input-group" style="margin:0">
+          <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span>
+          <input class="input" type="search" placeholder="Search your properties, leads…" aria-label="Search">
+        </label>
+        <div class="spacer"></div>
+        <button class="icon-btn" aria-label="Notifications"><span class="dot"></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></button>
+        <button class="icon-btn" aria-label="Messages"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></button>
+        <a href="profile.html" class="avatar" title="Anil Mehta" aria-label="Your profile, Anil Mehta">AM</a>
+      </header>
+
+      <!-- content -->
+      <main class="app-content">
+
+        <!-- page title -->
+        <div class="page-title reveal in">
+          <div>
+            <span class="eyebrow mb-2"><span class="dot"></span>Seller · New listing</span>
+            <h1>Add a New Property</h1>
+            <p>List your property in minutes and start receiving leads.</p>
+          </div>
+          <div class="flex gap-2 wrap">
+            <a href="dashboard-seller.html" class="btn btn-ghost btn-sm">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+              Back to dashboard
+            </a>
+            <a href="#" class="btn btn-primary btn-sm">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Need help?
+            </a>
+          </div>
+        </div>
+
+        <!-- ============ STEPPER ============ -->
+        <div class="card card-pad reveal in reveal-d1" style="margin-bottom:24px">
+          <div class="steps" style="grid-template-columns:repeat(4,1fr);gap:14px">
+            <div class="step" style="padding:18px;display:flex;align-items:center;gap:14px;border-color:var(--brand-200);background:var(--brand-50)">
+              <div class="n" style="width:40px;height:40px;font-size:1rem;margin:0;flex-shrink:0">1</div>
+              <div>
+                <div class="muted" style="font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--brand-600)">Step 1 · Current</div>
+                <div style="font-weight:600;font-size:.96rem">Basic Details</div>
+              </div>
+            </div>
+            <div class="step" style="padding:18px;display:flex;align-items:center;gap:14px">
+              <div class="n" style="width:40px;height:40px;font-size:1rem;margin:0;flex-shrink:0;background:var(--bg-muted);color:var(--text-muted);box-shadow:none">2</div>
+              <div>
+                <div class="muted" style="font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase">Step 2</div>
+                <div style="font-weight:600;font-size:.96rem;color:var(--text-soft)">Location</div>
+              </div>
+            </div>
+            <div class="step" style="padding:18px;display:flex;align-items:center;gap:14px">
+              <div class="n" style="width:40px;height:40px;font-size:1rem;margin:0;flex-shrink:0;background:var(--bg-muted);color:var(--text-muted);box-shadow:none">3</div>
+              <div>
+                <div class="muted" style="font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase">Step 3</div>
+                <div style="font-weight:600;font-size:.96rem;color:var(--text-soft)">Photos &amp; Tour</div>
+              </div>
+            </div>
+            <div class="step" style="padding:18px;display:flex;align-items:center;gap:14px">
+              <div class="n" style="width:40px;height:40px;font-size:1rem;margin:0;flex-shrink:0;background:var(--bg-muted);color:var(--text-muted);box-shadow:none">4</div>
+              <div>
+                <div class="muted" style="font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase">Step 4</div>
+                <div style="font-weight:600;font-size:.96rem;color:var(--text-soft)">Amenities &amp; Publish</div>
+              </div>
+            </div>
+          </div>
+          <div class="progress mt-3"><span style="width:25%"></span></div>
+        </div>
+
+        <!-- ============ TWO-COLUMN LAYOUT ============ -->
+        <div class="grid" style="grid-template-columns:1.5fr 1fr;gap:24px;align-items:start">
+
+          <!-- LEFT: FORM -->
+          <form onsubmit="return false">
+
+            <!-- 1) BASIC DETAILS -->
+            <div class="card card-pad reveal in" style="margin-bottom:24px">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="kpi-ic icon-tile ic-brand" style="width:40px;height:40px;border-radius:11px;display:grid;place-items:center;flex-shrink:0;background:var(--brand-50);color:var(--brand-600)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span>
+                <h3 class="h3">Basic Details</h3>
+              </div>
+
+              <div class="field">
+                <label>Listing type</label>
+                <div class="chip-row" data-chip-group>
+                  <span class="chip active">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9.5L12 3l9 6.5"/><path d="M5 9v11h14V9"/></svg>For Sale
+                  </span>
+                  <span class="chip">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>For Rent
+                  </span>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="propTitle">Property title</label>
+                <input id="propTitle" class="input" type="text" placeholder="e.g. 3 BHK Luxury Apartment in Bandra West">
+                <p class="hint">A clear, descriptive title attracts more genuine leads.</p>
+              </div>
+
+              <div class="grid grid-2" style="gap:18px">
+                <div class="field">
+                  <label for="propType">Property type</label>
+                  <select id="propType" class="select">
+                    <option>Apartment</option>
+                    <option>Villa</option>
+                    <option>Builder Floor</option>
+                    <option>Plot</option>
+                    <option>Penthouse</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="constStatus">Construction status</label>
+                  <select id="constStatus" class="select">
+                    <option>Ready to Move</option>
+                    <option>Under Construction</option>
+                    <option>New Launch</option>
+                    <option>Resale</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label>Configuration (BHK)</label>
+                <div class="chip-row" data-chip-group>
+                  <span class="chip">1 BHK</span>
+                  <span class="chip active">2 BHK</span>
+                  <span class="chip">3 BHK</span>
+                  <span class="chip">4 BHK</span>
+                  <span class="chip">5 BHK</span>
+                </div>
+              </div>
+
+              <div class="grid grid-2" style="gap:18px">
+                <div class="field" style="margin-bottom:0">
+                  <label for="propPrice">Expected price</label>
+                  <div class="input-group">
+                    <span class="ic" style="font-weight:700;color:var(--text-soft)">₹</span>
+                    <input id="propPrice" class="input" type="text" placeholder="2.45 Cr" inputmode="decimal">
+                  </div>
+                  <p class="hint">Enter in Lakh or Cr (e.g. 95 Lakh, 2.45 Cr).</p>
+                </div>
+                <div class="field" style="margin-bottom:0">
+                  <label for="propArea">Carpet area (sq.ft)</label>
+                  <div class="input-group">
+                    <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z"/><path d="M9 3v18M3 9h18"/></svg></span>
+                    <input id="propArea" class="input" type="number" placeholder="1240" inputmode="numeric">
+                  </div>
+                  <p class="hint">Used to auto-calculate the per-sq.ft rate.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2) LOCATION -->
+            <div class="card card-pad reveal in reveal-d1" style="margin-bottom:24px">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="icon-tile ic-accent" style="width:40px;height:40px;border-radius:11px;display:grid;place-items:center;flex-shrink:0;background:#cffafe;color:var(--accent-600)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                <h3 class="h3">Location</h3>
+              </div>
+
+              <div class="grid grid-2" style="gap:18px">
+                <div class="field">
+                  <label for="propCity">City</label>
+                  <select id="propCity" class="select">
+                    <option>Mumbai</option>
+                    <option>Bengaluru</option>
+                    <option>Hyderabad</option>
+                    <option>Pune</option>
+                    <option>Gurugram</option>
+                    <option>Delhi</option>
+                    <option>Chennai</option>
+                    <option>Kolkata</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="propLocality">Locality</label>
+                  <input id="propLocality" class="input" type="text" placeholder="e.g. Bandra West">
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="propAddress">Full address</label>
+                <textarea id="propAddress" class="textarea" placeholder="Tower / building name, street, landmark and pin code…"></textarea>
+              </div>
+
+              <div class="field" style="margin-bottom:0">
+                <label>Pin location on map</label>
+                <div class="card" style="position:relative;overflow:hidden;height:220px;border-style:dashed;border-color:var(--border-strong);display:grid;place-items:center;text-align:center;background:
+                  linear-gradient(0deg, rgba(109,94,240,.04), rgba(109,94,240,.04)),
+                  linear-gradient(var(--border) 1px, transparent 1px) 0 0 / 40px 40px,
+                  linear-gradient(90deg, var(--border) 1px, transparent 1px) 0 0 / 40px 40px,
+                  var(--bg-soft)">
+                  <div style="position:relative;z-index:2">
+                    <span style="display:inline-grid;place-items:center;width:48px;height:48px;border-radius:50%;background:var(--grad-brand);color:#fff;box-shadow:var(--sh-glow);margin-bottom:10px">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </span>
+                    <div style="font-weight:600">Pin location on map</div>
+                    <p class="muted" style="font-size:.84rem">Drag the marker to set the exact spot. Buyers see an approximate area only.</p>
+                    <button class="btn btn-ghost btn-sm mt-2" type="button">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+                      Use current location
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3) PHOTOS & VIRTUAL TOUR -->
+            <div class="card card-pad reveal in reveal-d2" style="margin-bottom:24px">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="icon-tile ic-pink" style="width:40px;height:40px;border-radius:11px;display:grid;place-items:center;flex-shrink:0;background:#fce7f3;color:#be185d"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg></span>
+                <h3 class="h3">Photos &amp; Virtual Tour</h3>
+              </div>
+
+              <!-- dropzone -->
+              <div class="field">
+                <label>Property photos</label>
+                <div class="card" style="border-style:dashed;border-color:var(--brand-300);background:var(--brand-50);text-align:center;padding:34px 20px;cursor:pointer">
+                  <span style="display:inline-grid;place-items:center;width:52px;height:52px;border-radius:14px;background:#fff;color:var(--brand-600);box-shadow:var(--sh-sm);margin-bottom:12px">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M17 8l-5-5-5 5M12 3v12"/></svg>
+                  </span>
+                  <div style="font-weight:600">Drag photos here or <span style="color:var(--brand-700)">browse</span></div>
+                  <p class="muted" style="font-size:.84rem">JPG or PNG, up to 10 MB each. Add at least 5 photos for best results.</p>
+                </div>
+              </div>
+
+              <!-- thumbnail row -->
+              <div class="grid grid-3" style="gap:12px;margin-bottom:18px">
+                <div class="prop-media" style="border-radius:var(--r-md);overflow:hidden;aspect-ratio:4/3;position:relative">
+                  <img id="thumb1" alt="Living room preview" loading="lazy">
+                  <span class="badge badge-brand" style="position:absolute;top:8px;left:8px">Cover</span>
+                  <button class="prop-save" type="button" aria-label="Remove photo" style="width:30px;height:30px;color:var(--danger)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+                </div>
+                <div class="prop-media" style="border-radius:var(--r-md);overflow:hidden;aspect-ratio:4/3;position:relative">
+                  <img id="thumb2" alt="Kitchen preview" loading="lazy">
+                  <button class="prop-save" type="button" aria-label="Remove photo" style="width:30px;height:30px;color:var(--danger)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+                </div>
+                <div class="card" style="border-style:dashed;border-color:var(--border-strong);aspect-ratio:4/3;display:grid;place-items:center;color:var(--text-muted);box-shadow:none">
+                  <span style="text-align:center">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 4px"><path d="M12 5v14M5 12h14"/></svg>
+                    <span style="font-size:.8rem;font-weight:600">Add more</span>
+                  </span>
+                </div>
+              </div>
+
+              <!-- 360 tour link -->
+              <div class="field" style="margin-bottom:0">
+                <label for="tourLink">360° Virtual Tour link</label>
+                <div class="input-group">
+                  <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1.5-1.5"/></svg></span>
+                  <input id="tourLink" class="input" type="url" placeholder="https://tour.homesmenu.in/skyline-heights">
+                </div>
+                <p class="hint">Listings with a 360° tour get up to 3× more enquiries. Paste a Matterport, Kuula or YouTube 360 link.</p>
+              </div>
+            </div>
+
+            <!-- 4) AMENITIES & DESCRIPTION -->
+            <div class="card card-pad reveal in reveal-d3" style="margin-bottom:24px">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="icon-tile ic-success" style="width:40px;height:40px;border-radius:11px;display:grid;place-items:center;flex-shrink:0;background:var(--success-bg);color:#047857"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h.01M15 9h.01M9 13h.01M15 13h.01M9 17h.01M15 17h.01"/></svg></span>
+                <h3 class="h3">Amenities &amp; Description</h3>
+              </div>
+
+              <div class="field">
+                <label>Amenities <span class="muted" style="font-weight:500">(select all that apply)</span></label>
+                <div class="chip-row" data-chip-group data-multi>
+                  <span class="chip active">Parking</span>
+                  <span class="chip active">Lift</span>
+                  <span class="chip">Gym</span>
+                  <span class="chip">Pool</span>
+                  <span class="chip active">Security</span>
+                  <span class="chip">Power Backup</span>
+                  <span class="chip">Clubhouse</span>
+                  <span class="chip">Garden</span>
+                  <span class="chip">Kids Area</span>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="propDesc">Description</label>
+                <textarea id="propDesc" class="textarea" placeholder="Describe the highlights — view, ventilation, proximity to metro/schools, recent renovations, what makes this home special…"></textarea>
+                <p class="hint">120–300 words works best. Avoid sharing contact details here.</p>
+              </div>
+
+              <div class="field" style="margin-bottom:0">
+                <div class="flex items-center justify-between gap-2" style="padding:14px 16px;border:1.5px solid var(--border-strong);border-radius:var(--r-sm);background:var(--bg-soft)">
+                  <div class="flex items-center gap-2">
+                    <span class="icon-tile ic-success" style="width:36px;height:36px;border-radius:10px;display:grid;place-items:center;flex-shrink:0;background:var(--success-bg);color:#047857"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></span>
+                    <div>
+                      <div style="font-weight:600">Request a Verified Listing badge</div>
+                      <p class="muted" style="font-size:.82rem">We'll cross-check RERA &amp; ownership documents. Verified homes rank higher.</p>
+                    </div>
+                  </div>
+                  <span class="switch on" role="switch" aria-checked="true" aria-label="Request verified listing badge"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- action row -->
+            <div class="flex items-center justify-between gap-2 wrap reveal in reveal-d4">
+              <a href="#" class="muted" style="font-size:.88rem;display:inline-flex;align-items:center;gap:6px">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
+                Your listing auto-saves as you type.
+              </a>
+              <div class="flex gap-2 wrap">
+                <button class="btn btn-ghost" type="button">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/></svg>
+                  Save as draft
+                </button>
+                <button class="btn btn-primary" type="button" id="publishBtn">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>
+                  Publish Listing
+                </button>
+              </div>
+            </div>
+
+          </form>
+
+          <!-- RIGHT: STICKY PREVIEW -->
+          <aside style="position:sticky;top:90px">
+
+            <!-- live preview card -->
+            <div class="reveal in reveal-d2">
+              <div class="flex items-center gap-2 mb-2">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--brand-600)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+                <span class="side-section" style="padding:0;color:var(--text-soft)">Live preview</span>
+              </div>
+
+              <article class="prop-card">
+                <div class="prop-media">
+                  <img id="previewImg" alt="Live preview of 2 BHK Modern Flat in Bandra West, Mumbai">
+                  <div class="prop-badges">
+                    <span class="badge badge-gold">For Sale</span>
+                    <span class="badge badge-glass"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Verified</span>
+                  </div>
+                  <button class="prop-save" type="button" aria-label="Save property"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
+                  <span class="prop-tour"><span class="pulse"></span>360° Tour</span>
+                </div>
+                <div class="prop-body">
+                  <div class="prop-price">₹2.45 Cr <small>· ₹24,500/sq.ft</small></div>
+                  <div class="prop-title">2 BHK Modern Flat <span class="muted" style="font-weight:500">· Skyline Heights</span></div>
+                  <div class="prop-loc"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Bandra West, Mumbai</div>
+                  <div class="prop-meta">
+                    <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 9V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v3"/><path d="M2 11h20v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z"/><path d="M6 11V9m12 2V9"/></svg>2 Beds</span>
+                    <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M6 12V6a2 2 0 0 1 2-2 2 2 0 0 1 2 2"/></svg>2 Baths</span>
+                    <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z"/><path d="M9 3v18M3 9h18"/></svg>1240 sq.ft</span>
+                  </div>
+                </div>
+                <div class="prop-foot">
+                  <div class="dealer-mini"><span class="av">AM</span><div><div style="font-weight:600">Anil Mehta</div><div class="muted" style="font-size:.74rem">You · Seller</div></div></div>
+                  <span class="btn btn-soft btn-sm">Preview</span>
+                </div>
+              </article>
+            </div>
+
+            <!-- listing quality checklist -->
+            <div class="card card-pad reveal in reveal-d3" style="margin-top:20px">
+              <div class="flex items-center justify-between mb-2">
+                <h3 style="font-size:1.05rem">Listing quality</h3>
+                <span class="badge badge-warn">60% complete</span>
+              </div>
+              <div class="progress mb-3"><span style="width:60%"></span></div>
+
+              <ul style="display:flex;flex-direction:column;gap:12px">
+                <li class="flex items-center gap-2">
+                  <span style="display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--success-bg);color:#047857;flex-shrink:0">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                  <span style="font-size:.92rem">Basic details added</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span style="display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--warning-bg);color:#b45309;flex-shrink:0">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2.5 2.5"/></svg>
+                  </span>
+                  <span style="font-size:.92rem">Add 5+ photos <span class="muted">(2 of 5)</span></span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span style="display:grid;place-items:center;width:24px;height:24px;border-radius:50%;border:2px solid var(--border-strong);color:var(--text-muted);flex-shrink:0">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                  </span>
+                  <span style="font-size:.92rem;color:var(--text-soft)">Add a 360° virtual tour</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span style="display:grid;place-items:center;width:24px;height:24px;border-radius:50%;border:2px solid var(--border-strong);color:var(--text-muted);flex-shrink:0">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                  </span>
+                  <span style="font-size:.92rem;color:var(--text-soft)">Complete amenities &amp; description</span>
+                </li>
+              </ul>
+
+              <hr class="divider">
+              <div class="flex items-center gap-2" style="font-size:.84rem;color:var(--text-soft)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--brand-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1L12 16.8 5.7 21l2.3-7.1-6-4.5h7.6z"/></svg>
+                Listings at 100% get the <b style="color:var(--text)">Premium</b> badge &amp; rank higher in search.
+              </div>
+            </div>
+          </aside>
+
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // Offline images via HM_DATA SVG generator
+    (function () {
+      var D = window.HM_DATA;
+      if (!D) return;
+      var put = function (id, file, seed, label) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        el.dataset.seed = seed; el.dataset.label = label;
+        el.setAttribute('onerror', 'hmImgFallback(this)');
+        el.src = D.assetImg(file);
+      };
+      put('previewImg', 'master-bedroom.jpg', 0, 'Skyline Heights');
+      put('thumb1', 'kitchen.jpg', 2, 'Kitchen');
+      put('thumb2', 'bathroom-3.jpg', 6, 'Bathroom');
+
+      // Friendly publish feedback (toast handled by app.js)
+      var pub = document.getElementById('publishBtn');
+      if (pub) pub.addEventListener('click', function () {
+        if (window.hmToast) window.hmToast('Listing published — buyers can now find your home');
+      });
+    })();
+  </script>
+</body>
+</html>

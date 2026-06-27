@@ -1,0 +1,61 @@
+# HomesMenu — full stack (MySQL + Laravel API + Next.js)
+# Run:  docker compose up --build
+#   API      -> http://localhost:8000
+#   Frontend -> http://localhost:3000
+#   MySQL    -> localhost:3307 (user homesmenu / secret)
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: pm_db
+    environment:
+      MYSQL_DATABASE: homesmenu
+      MYSQL_USER: homesmenu
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: rootsecret
+    ports:
+      - "3307:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-prootsecret"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  backend:
+    build: ./backend
+    container_name: pm_backend
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: homesmenu
+      DB_USERNAME: homesmenu
+      DB_PASSWORD: secret
+      FRONTEND_URL: http://localhost:3000
+      APP_URL: http://localhost:8001
+    ports:
+      - "8001:8000"
+    volumes:
+      - ./backend:/var/www          # live-edit PHP code
+      - backend_vendor:/var/www/vendor   # keep the image's Linux vendor/
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        NEXT_PUBLIC_API_URL: http://localhost:8001/api
+    container_name: pm_frontend
+    depends_on:
+      - backend
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8000/api
+    ports:
+      - "3000:3000"
+
+volumes:
+  dbdata:
+  backend_vendor:

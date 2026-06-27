@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HomesMenu — Find. Tour. Refer. Earn. | Real Estate Marketplace</title>
+  <meta name="description" content="HomesMenu is India's smartest property marketplace. Search verified homes, take 360° virtual tours, and earn real rewards every time you refer a friend.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%232f8451'/%3E%3Cpath d='M5 11l7-6 7 6v7a1 1 0 0 1-1 1h-3v-5h-6v5H6a1 1 0 0 1-1-1z' fill='white'/%3E%3C/svg%3E">
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="container">
+      <a href="index.html" class="brand">
+        <span class="brand-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5"/></svg></span>
+        <span>Property<b>Mitra</b></span>
+      </a>
+      <nav class="nav-links">
+        <a href="properties.html">Buy</a>
+        <a href="properties.html">Rent</a>
+        <a href="dashboard-seller.html">Sell</a>
+        <a href="virtual-visit.html">Virtual Tours</a>
+        <a href="refer-earn.html" class="active">Refer &amp; Earn</a>
+        <a href="dashboard-dealer.html">Dealer Zone</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-ghost btn-sm">Log in</a>
+        <a href="login.html" class="btn btn-primary btn-sm">Get Started</a>
+        <button class="nav-toggle" aria-label="Menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- mobile drawer -->
+  <div class="drawer">
+    <div class="drawer-bg"></div>
+    <aside class="drawer-panel">
+      <div class="flex items-center justify-between mb-2">
+        <span class="brand"><span class="brand-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8"/></svg></span> Property<b>Mitra</b></span>
+        <button class="icon-btn" data-drawer-close aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+      </div>
+      <a href="properties.html">Buy</a>
+      <a href="properties.html">Rent</a>
+      <a href="dashboard-seller.html">Sell</a>
+      <a href="virtual-visit.html">Virtual Tours</a>
+      <a href="refer-earn.html">Refer &amp; Earn</a>
+      <a href="dashboard-dealer.html">Dealer Zone</a>
+      <hr class="divider">
+      <a href="login.html" class="btn btn-ghost btn-block">Log in</a>
+      <a href="login.html" class="btn btn-primary btn-block mt-1">Get Started</a>
+    </aside>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="aurora"><span class="b1"></span><span class="b2"></span><span class="b3"></span><span class="b4"></span></div>
+    <div class="grid-overlay"></div>
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow reveal in"><span class="dot"></span>India's smartest property marketplace</span>
+          <h1 class="mt-3 reveal in reveal-d1">Find your home.<br>Take a <span class="gradient-text">360° tour.</span><br>Refer &amp; <span class="gradient-text">earn real cash.</span></h1>
+          <p class="lead mt-3 reveal in reveal-d2">Browse thousands of verified properties, walk through them virtually from your couch, and unlock rewards every time a friend buys through your link. Buyers, sellers &amp; dealers — all in one place.</p>
+
+          <!-- search -->
+          <div class="reveal in reveal-d3">
+            <div class="search-tabs mt-4" data-tabs>
+              <button data-tab="buy" class="active">Buy</button>
+              <button data-tab="rent">Rent</button>
+              <button data-tab="commercial">Commercial</button>
+              <button data-tab="pg">PG / Co-living</button>
+            </div>
+            <form class="search-bar" onsubmit="location.href='properties.html';return false;">
+              <label class="search-field">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <input type="text" placeholder="Enter city, locality or project" value="Mumbai">
+              </label>
+              <div class="search-divider"></div>
+              <label class="search-field">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9.5L12 3l9 6.5"/><path d="M5 9v11h14V9"/></svg>
+                <select><option>Property Type</option><option>Apartment</option><option>Villa</option><option>Builder Floor</option><option>Plot</option></select>
+              </label>
+              <div class="search-divider"></div>
+              <label class="search-field">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                <select><option>Budget</option><option>Under ₹50 L</option><option>₹50 L – ₹1 Cr</option><option>₹1 Cr – ₹3 Cr</option><option>₹3 Cr +</option></select>
+              </label>
+              <button type="submit" class="btn btn-primary"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>Search</button>
+            </form>
+            <div class="chip-row mt-3">
+              <span class="muted" style="font-size:.85rem;align-self:center">Popular:</span>
+              <a href="properties.html" class="chip">3 BHK in Mumbai</a>
+              <a href="properties.html" class="chip">Villas in Hyderabad</a>
+              <a href="virtual-visit.html" class="chip">Homes with Virtual Tour</a>
+            </div>
+          </div>
+
+          <div class="hero-stats reveal in reveal-d4">
+            <div><div class="num"><span data-count="50000" data-suffix="+">0</span></div><div class="lbl">Verified listings</div></div>
+            <div><div class="num">₹<span data-count="4.2" data-dec="1" data-suffix="Cr">0</span></div><div class="lbl">Rewards paid out</div></div>
+            <div><div class="num"><span data-count="120" data-suffix="+">0</span></div><div class="lbl">Cities covered</div></div>
+          </div>
+        </div>
+
+        <!-- hero visual -->
+        <div class="reveal in reveal-d3" style="position:relative">
+          <div class="hero-card">
+            <div class="prop-media" style="border-radius:16px;overflow:hidden;aspect-ratio:4/3">
+              <img id="heroImg" alt="Featured property virtual tour">
+            </div>
+            <div class="flex items-center justify-between mt-3">
+              <div>
+                <div style="font-family:var(--font-display);font-size:1.4rem;font-weight:700;color:#fff">₹2.45 Cr</div>
+                <div style="color:rgba(255,255,255,.65);font-size:.86rem">3 BHK · Skyline Heights, Bandra</div>
+              </div>
+              <a href="virtual-visit.html" class="btn btn-glass btn-sm"><span class="pulse" style="width:8px;height:8px;border-radius:50%;background:#5cc08a"></span>360° Tour</a>
+            </div>
+          </div>
+          <div class="float-card" style="top:-22px;right:-10px"><span class="ic" style="background:var(--grad-warm)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1L12 16.8 5.7 21l2.3-7.1-6-4.5h7.6z"/></svg></span>Earned ₹25,000<br><span class="muted" style="font-weight:500;font-size:.74rem">Referral reward</span></div>
+          <div class="float-card" style="bottom:-26px;left:-14px;animation-delay:-2.5s"><span class="ic" style="background:var(--grad-cyan)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Verified Listing<br><span class="muted" style="font-weight:500;font-size:.74rem">RERA approved</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRUST MARQUEE ============ -->
+  <div class="section-sm" style="border-bottom:1px solid var(--border)">
+    <div class="container center">
+      <p class="muted mb-3" style="font-size:.86rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase">Trusted by leading developers &amp; 2 Lakh+ home seekers</p>
+      <div class="marquee">
+        <div class="marquee-track">
+          <span>LODHA</span><span>DLF</span><span>Godrej Properties</span><span>Prestige</span><span>Sobha</span><span>Brigade</span><span>Oberoi Realty</span>
+          <span>LODHA</span><span>DLF</span><span>Godrej Properties</span><span>Prestige</span><span>Sobha</span><span>Brigade</span><span>Oberoi Realty</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ QUICK ACTIONS (from wireframe home screen) ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow reveal"><span class="dot"></span>Everything in one app</span>
+        <h2 class="h2 reveal reveal-d1">Your complete property toolkit</h2>
+        <p class="lead reveal reveal-d2">From searching and touring to selling and earning — HomesMenu brings the whole journey together.</p>
+      </div>
+      <div class="bento">
+        <a href="properties.html" class="feature reveal">
+          <div class="feature-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+          <h3>Search Property</h3><p>Smart filters across 50,000+ verified listings in 120+ cities.</p>
+        </a>
+        <a href="virtual-visit.html" class="feature span-2 reveal reveal-d1" style="display:flex;flex-direction:column;justify-content:flex-end;min-height:200px;background:var(--grad-dark);color:#fff;border:none;overflow:hidden">
+          <div class="aurora"><span class="b2" style="opacity:.4"></span><span class="b4" style="opacity:.4"></span></div>
+          <div style="position:relative;z-index:2">
+            <span class="badge badge-glass mb-2"><span class="pulse" style="width:7px;height:7px;border-radius:50%;background:#5cc08a"></span>Immersive</span>
+            <h3 style="color:#fff;font-size:1.4rem">Virtual 360° Visits</h3>
+            <p style="color:rgba(255,255,255,.75)">Walk through the bedroom, kitchen, hall &amp; balcony — rotate the view and schedule a real site visit in one tap.</p>
+          </div>
+        </a>
+        <a href="refer-earn.html" class="feature reveal reveal-d2">
+          <div class="feature-ic" style="background:var(--warning-bg);color:#b45309"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1L12 16.8 5.7 21l2.3-7.1-6-4.5h7.6z"/></svg></div>
+          <h3>Refer &amp; Earn</h3><p>Share your code, your friend buys, you both earn up to ₹25,000.</p>
+        </a>
+        <a href="properties.html" class="feature reveal">
+          <div class="feature-ic" style="background:#cffafe;color:var(--accent-600)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9.5L12 3l9 6.5"/><path d="M5 9v11h14V9"/><path d="M9 21v-6h6v6"/></svg></div>
+          <h3>Buy Property</h3><p>Connect directly with verified dealers — no spam, no brokerage surprises.</p>
+        </a>
+        <a href="dashboard-seller.html" class="feature reveal reveal-d1">
+          <div class="feature-ic" style="background:#fce7f3;color:#be185d"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v4H3z"/><path d="M5 7v14h14V7"/><path d="M10 12h4"/></svg></div>
+          <h3>Sell Property</h3><p>List in minutes, track leads, and manage your sale from one dashboard.</p>
+        </a>
+        <a href="dashboard-dealer.html" class="feature reveal reveal-d2">
+          <div class="feature-ic" style="background:var(--success-bg);color:#047857"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 4v16"/></svg></div>
+          <h3>Dealer Zone</h3><p>Listings, leads, deals closed &amp; commission — your whole business at a glance.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURED PROPERTIES ============ -->
+  <section class="section" style="background:var(--bg-soft)">
+    <div class="container">
+      <div class="flex items-center justify-between mb-4 wrap gap-2">
+        <div>
+          <span class="eyebrow reveal"><span class="dot"></span>Handpicked for you</span>
+          <h2 class="h2 mt-2 reveal reveal-d1">Featured properties</h2>
+        </div>
+        <a href="properties.html" class="btn btn-ghost reveal reveal-d2">View all listings <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="grid grid-4" data-props="8" data-featured></div>
+    </div>
+  </section>
+
+  <!-- ============ REFER & EARN SPOTLIGHT (USP) ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="card" style="overflow:hidden;border:none;background:var(--grad-dark);color:#fff;position:relative;isolation:isolate">
+        <div class="aurora"><span class="b1" style="opacity:.45"></span><span class="b3" style="opacity:.45"></span></div>
+        <div class="grid grid-2 card-pad" style="position:relative;z-index:2;gap:48px;align-items:center;padding:clamp(28px,5vw,56px)">
+          <div class="reveal">
+            <span class="badge badge-glass mb-3"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1L12 16.8 5.7 21l2.3-7.1-6-4.5h7.6z"/></svg>Refer &amp; Earn</span>
+            <h2 class="h2" style="color:#fff">Turn your network into <span class="gradient-text">real income.</span></h2>
+            <p class="lead mt-2" style="color:rgba(255,255,255,.78)">Every member gets a unique referral code. Share it on WhatsApp, Facebook or Telegram — when your friend books a property, the reward lands straight in your wallet. Withdraw anytime.</p>
+            <div class="flex gap-3 mt-4 wrap">
+              <div><div style="font-family:var(--font-display);font-size:2rem;font-weight:700">₹25K</div><div class="muted" style="color:rgba(255,255,255,.6);font-size:.85rem">Max reward / referral</div></div>
+              <div><div style="font-family:var(--font-display);font-size:2rem;font-weight:700">24 hrs</div><div class="muted" style="color:rgba(255,255,255,.6);font-size:.85rem">Fastest payout</div></div>
+              <div><div style="font-family:var(--font-display);font-size:2rem;font-weight:700">0%</div><div class="muted" style="color:rgba(255,255,255,.6);font-size:.85rem">Hidden charges</div></div>
+            </div>
+            <a href="refer-earn.html" class="btn btn-primary btn-lg mt-4">Start earning today</a>
+          </div>
+          <div class="reveal reveal-d2">
+            <div class="glass" style="padding:26px;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15)">
+              <p style="color:rgba(255,255,255,.7);font-size:.85rem;font-weight:600">YOUR REFERRAL CODE</p>
+              <div class="ref-code mt-2" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.3)">
+                <span class="code" style="color:#fff">ABCD1234</span>
+                <button class="btn btn-glass btn-sm" data-copy="ABCD1234"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy</button>
+              </div>
+              <div class="share-btns mt-3">
+                <a class="share-btn sb-wa" href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5.2-.4v-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.2.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.4-.4z"/></svg>WhatsApp</a>
+                <a class="share-btn sb-fb" href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.7-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg>Facebook</a>
+                <a class="share-btn sb-tg" href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3l-3 14.2c-.2 1-.8 1.2-1.7.8l-4.6-3.4-2.2 2.1c-.3.3-.5.5-.9.5l.3-4.6L18.2 6c.3-.3 0-.5-.5-.2L7.3 12.4l-4.5-1.4c-1-.3-1-1 .2-1.4l17.5-6.8c.8-.3 1.5.2 1.4 1.5z"/></svg>Telegram</a>
+              </div>
+              <hr class="divider" style="border-color:rgba(255,255,255,.12)">
+              <div class="flex items-center justify-between">
+                <div><div class="muted" style="color:rgba(255,255,255,.6);font-size:.82rem">Total earnings</div><div style="font-family:var(--font-display);font-size:1.8rem;font-weight:700">₹<span data-count="55500" data-prefix="">0</span></div></div>
+                <a href="refer-earn.html" class="btn btn-success btn-sm">Withdraw</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="section" style="background:var(--bg-soft)">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow reveal"><span class="dot"></span>How it works</span>
+        <h2 class="h2 reveal reveal-d1">From login to keys in four steps</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><div class="n">1</div><h3>Log in &amp; choose role</h3><p>Sign up in seconds and pick Buyer, Seller or Dealer to get a tailored experience.</p></div>
+        <div class="step reveal reveal-d1"><div class="n">2</div><h3>Search &amp; tour</h3><p>Filter verified listings and explore them with immersive 360° virtual tours.</p></div>
+        <div class="step reveal reveal-d2"><div class="n">3</div><h3>Connect &amp; visit</h3><p>Chat or call the dealer directly and schedule a real site visit that suits you.</p></div>
+        <div class="step reveal reveal-d3"><div class="n">4</div><h3>Refer &amp; earn</h3><p>Loved it? Refer a friend with your code and earn rewards when they buy.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOR SELLERS & DEALERS ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-2" style="gap:24px">
+        <div class="card card-pad card-hover reveal" style="background:linear-gradient(160deg,#fff, #f7f8fc)">
+          <span class="badge badge-soft mb-3">For Sellers</span>
+          <h3 class="h3">Sell smarter with a live dashboard</h3>
+          <p class="muted mt-1">Add a property, watch leads roll in, track status and celebrate sold deals — all in one clean view.</p>
+          <ul class="mt-3" style="display:flex;flex-direction:column;gap:12px">
+            <li class="flex items-center gap-2"><span class="badge badge-success" style="border-radius:50%;width:24px;height:24px;justify-content:center;padding:0"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Add property &amp; manage listings</li>
+            <li class="flex items-center gap-2"><span class="badge badge-success" style="border-radius:50%;width:24px;height:24px;justify-content:center;padding:0"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Leads received in real time</li>
+            <li class="flex items-center gap-2"><span class="badge badge-success" style="border-radius:50%;width:24px;height:24px;justify-content:center;padding:0"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Property status &amp; sold history</li>
+          </ul>
+          <a href="dashboard-seller.html" class="btn btn-dark mt-4">Open Seller Dashboard</a>
+        </div>
+        <div class="card card-pad card-hover reveal reveal-d1" style="background:linear-gradient(160deg,#fff, #f7f8fc)">
+          <span class="badge badge-soft mb-3" style="background:#cffafe;color:var(--accent-600);border-color:#a5f3fc">For Dealers</span>
+          <h3 class="h3">Grow your brokerage business</h3>
+          <p class="muted mt-1">Track total listings, customer leads, deals closed and commission earned — then add new properties in a tap.</p>
+          <ul class="mt-3" style="display:flex;flex-direction:column;gap:12px">
+            <li class="flex items-center gap-2"><span class="badge badge-success" style="border-radius:50%;width:24px;height:24px;justify-content:center;padding:0"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Total listings &amp; customer leads</li>
+            <li class="flex items-center gap-2"><span class="badge badge-success" style="border-radius:50%;width:24px;height:24px;justify-content:center;padding:0"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Deals closed &amp; commission earned</li>
+            <li class="flex items-center gap-2"><span class="badge badge-success" style="border-radius:50%;width:24px;height:24px;justify-content:center;padding:0"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Verified dealer badge &amp; priority</li>
+          </ul>
+          <a href="dashboard-dealer.html" class="btn btn-dark mt-4">Open Dealer Dashboard</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="section" style="background:var(--bg-soft)">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow reveal"><span class="dot"></span>Loved by thousands</span>
+        <h2 class="h2 reveal reveal-d1">Real homes. Real rewards.</h2>
+      </div>
+      <div class="grid grid-3">
+        <div class="quote reveal">
+          <div class="stars">★★★★★</div>
+          <p>"The 360° tour saved me three weekend trips. I shortlisted my flat from home and booked a visit only for the final one."</p>
+          <div class="who"><span class="av" style="width:44px;height:44px;border-radius:50%;background:var(--grad-brand);color:#fff;display:grid;place-items:center;font-weight:700">RK</span><div><div style="font-weight:600">Ravi Kumar</div><div class="muted" style="font-size:.85rem">Bought in Pune</div></div></div>
+        </div>
+        <div class="quote reveal reveal-d1">
+          <div class="stars">★★★★★</div>
+          <p>"I referred two friends and earned ₹40,000 in rewards. The payout hit my account the next day. Genuinely surprised."</p>
+          <div class="who"><span class="av" style="width:44px;height:44px;border-radius:50%;background:var(--grad-warm);color:#fff;display:grid;place-items:center;font-weight:700">SM</span><div><div style="font-weight:600">Sana Mirza</div><div class="muted" style="font-size:.85rem">Refer &amp; Earn member</div></div></div>
+        </div>
+        <div class="quote reveal reveal-d2">
+          <div class="stars">★★★★★</div>
+          <p>"As a dealer, the leads dashboard is gold. I can see who toured what and follow up instantly. Closed 6 deals last month."</p>
+          <div class="who"><span class="av" style="width:44px;height:44px;border-radius:50%;background:var(--grad-cyan);color:#fff;display:grid;place-items:center;font-weight:700">AM</span><div><div style="font-weight:600">Anil Mehta</div><div class="muted" style="font-size:.85rem">Verified Dealer, Mumbai</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-band center reveal">
+        <div class="aurora"><span class="b2"></span><span class="b3"></span></div>
+        <div style="position:relative;z-index:2;max-width:680px;margin:0 auto">
+          <h2 class="h1" style="color:#fff">Ready to find your next home?</h2>
+          <p class="lead mt-2" style="color:rgba(255,255,255,.8);margin-inline:auto">Join 2 lakh+ buyers, sellers and dealers already on HomesMenu. It's free to start.</p>
+          <div class="flex gap-2 wrap" style="justify-content:center;margin-top:28px">
+            <a href="login.html" class="btn btn-primary btn-lg">Create free account</a>
+            <a href="properties.html" class="btn btn-glass btn-lg">Browse properties</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="brand" style="color:#fff"><span class="brand-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8"/><path d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5"/></svg></span> Property<b>Mitra</b></a>
+          <p class="mt-2" style="max-width:30ch">Find. Tour. Refer. Earn. India's smartest, most rewarding property marketplace.</p>
+          <div class="social mt-3">
+            <a href="#" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 5.8a8 8 0 0 1-2.4.7 4 4 0 0 0 1.8-2.2 8 8 0 0 1-2.5 1A4 4 0 0 0 11.8 9 11 11 0 0 1 3.7 4.9a4 4 0 0 0 1.2 5.3 4 4 0 0 1-1.8-.5 4 4 0 0 0 3.2 4 4 4 0 0 1-1.8 0 4 4 0 0 0 3.7 2.8A8 8 0 0 1 2 18.1 11 11 0 0 0 8 20c7.2 0 11.1-6 11.1-11.1v-.5A8 8 0 0 0 22 5.8z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05A4.2 4.2 0 0 1 17.5 8.5c3.5 0 4.5 2.3 4.5 5.3V21h-4v-5.5c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V21h-4z"/></svg></a>
+          </div>
+        </div>
+        <div><h4>Explore</h4><a href="properties.html">Buy property</a><a href="properties.html">Rent property</a><a href="virtual-visit.html">Virtual tours</a><a href="properties.html">New projects</a></div>
+        <div><h4>For Pros</h4><a href="dashboard-seller.html">Sell property</a><a href="dashboard-dealer.html">Dealer Zone</a><a href="dashboard-seller.html">Add listing</a><a href="login.html">Post for free</a></div>
+        <div><h4>Earn</h4><a href="refer-earn.html">Refer &amp; Earn</a><a href="refer-earn.html">My wallet</a><a href="refer-earn.html">Rewards FAQ</a><a href="profile.html">My profile</a></div>
+        <div><h4>Company</h4><a href="#">About us</a><a href="#">Contact</a><a href="#">Careers</a><a href="#">Privacy &amp; Terms</a></div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> HomesMenu. All rights reserved.</span>
+        <span class="muted">Made for buyers, sellers &amp; dealers across India 🇮🇳</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // hero image — real photo with SVG fallback
+    (function () {
+      var D = window.HM_DATA, h = document.getElementById('heroImg');
+      if (!h || !D) return;
+      h.dataset.seed = 0; h.dataset.label = 'Skyline Heights';
+      h.setAttribute('onerror', 'hmImgFallback(this)');
+      h.src = D.assetImg('balcony-view-1.jpg');
+    })();
+  </script>
+</body>
+</html>

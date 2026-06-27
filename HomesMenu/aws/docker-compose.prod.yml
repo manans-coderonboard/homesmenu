@@ -1,0 +1,47 @@
+# HomesMenu — production compose (REFERENCE COPY).
+#
+# This is the same compose the CloudFormation UserData writes to
+# /opt/homesmenu/docker-compose.yml on the EC2 host. It is kept here for
+# transparency / manual runs. In a real deploy you do NOT run this directly —
+# `aws/deploy.ps1` provisions the stack and the instance generates its own copy
+# (with resolved ECR image URIs + a stable APP_KEY in /opt/homesmenu/app.env).
+#
+# To run it by hand on a Docker host, export the referenced env vars first
+# (BACKEND_IMAGE, FRONTEND_IMAGE, DB_*, and an app.env beside this file).
+
+services:
+  db:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE:-homesmenu}
+      MYSQL_USER: ${DB_USERNAME:-homesmenu}
+      MYSQL_PASSWORD: ${DB_PASSWORD:?set DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:?set DB_ROOT_PASSWORD}
+    volumes:
+      - /data/mysql:/var/lib/mysql           # MySQL data on the retained EBS volume
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${DB_ROOT_PASSWORD}"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+
+  backend:
+    image: ${BACKEND_IMAGE:?set BACKEND_IMAGE to the ECR backend URI}
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    env_file: [./app.env]                    # APP_KEY, DB_*, FILESYSTEM_DISK=s3, AWS_*
+    volumes:
+      - ./app.env:/var/www/.env:ro           # entrypoint reads APP_KEY here, skips key:generate
+    ports:
+      - "8000:8000"
+
+  frontend:
+    image: ${FRONTEND_IMAGE:?set FRONTEND_IMAGE to the ECR frontend URI}
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"

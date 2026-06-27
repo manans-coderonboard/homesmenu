@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dealer Dashboard — Listings, Leads & Commission | HomesMenu</title>
+  <meta name="description" content="HomesMenu Dealer Dashboard: track total listings, customer leads, deals closed and commission earned. Manage your brokerage business and add new properties in one tap.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%232f8451'/%3E%3Cpath d='M5 11l7-6 7 6v7a1 1 0 0 1-1 1h-3v-5h-6v5H6a1 1 0 0 1-1-1z' fill='white'/%3E%3C/svg%3E">
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar">
+      <a href="index.html" class="brand">
+        <span class="brand-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5"/></svg></span>
+        Property<b>Mitra</b>
+      </a>
+
+      <div class="side-section">Workspace</div>
+      <a href="dashboard-dealer.html" class="side-link active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+        Dashboard
+      </a>
+      <a href="add-property.html" class="side-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5"/><path d="M5 9v11h14V9"/><path d="M12 11v6M9 14h6"/></svg>
+        Add Property
+      </a>
+      <a href="dashboard-dealer.html" class="side-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 4v16"/></svg>
+        Listings <span class="tag">42</span>
+      </a>
+      <a href="dashboard-dealer.html" class="side-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.85"/></svg>
+        Customer Leads <span class="tag">126</span>
+      </a>
+      <a href="dashboard-dealer.html" class="side-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/><path d="M22 12a10 10 0 1 1-3-7"/></svg>
+        Deals <span class="tag">28</span>
+      </a>
+
+      <div class="side-section">Account</div>
+      <a href="refer-earn.html" class="side-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1L12 16.8 5.7 21l2.3-7.1-6-4.5h7.6z"/></svg>
+        Refer &amp; Earn
+      </a>
+      <a href="profile.html" class="side-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg>
+        My Profile
+      </a>
+
+      <div class="side-foot">
+        <div class="card card-pad" style="background:var(--grad-dark);color:#fff;border:none;padding:18px;position:relative;overflow:hidden;isolation:isolate">
+          <div class="aurora"><span class="b2" style="opacity:.4"></span><span class="b4" style="opacity:.4"></span></div>
+          <div style="position:relative;z-index:2">
+            <span class="badge badge-glass mb-2"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1L12 16.8 5.7 21l2.3-7.1-6-4.5h7.6z"/></svg>Pro Dealer</span>
+            <div style="font-family:var(--font-display);font-weight:700;font-size:1.02rem;line-height:1.2">Boost your reach</div>
+            <p style="color:rgba(255,255,255,.72);font-size:.8rem;margin-top:4px">Feature 3 listings free this month.</p>
+            <a href="add-property.html" class="btn btn-glass btn-sm full mt-2">Upgrade plan</a>
+          </div>
+        </div>
+        <a href="login.html" class="side-link mt-1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5M21 12H9"/></svg>
+          Log out
+        </a>
+      </div>
+    </aside>
+
+    <!-- ============ APP MAIN ============ -->
+    <div class="app-main">
+
+      <!-- ============ TOPBAR ============ -->
+      <header class="topbar">
+        <button class="nav-toggle" aria-label="Open menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+        <label class="search input-group" style="flex:1;max-width:420px">
+          <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span>
+          <input class="input" type="search" placeholder="Search listings, leads or buyers…" aria-label="Search">
+        </label>
+        <div class="spacer"></div>
+        <button class="icon-btn" aria-label="Notifications"><span class="dot"></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></button>
+        <button class="icon-btn" aria-label="Messages"><span class="dot"></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></button>
+        <div class="flex items-center gap-1" style="padding-left:6px">
+          <a href="profile.html" class="avatar" title="Anil Mehta" aria-label="Your profile, Anil Mehta">AM</a>
+          <div style="line-height:1.15" class="hide-sm">
+            <div style="font-weight:600;font-size:.88rem">Anil Mehta</div>
+            <span class="badge badge-success" style="font-size:.64rem;padding:2px 8px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Verified Dealer</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- ============ CONTENT ============ -->
+      <main class="app-content">
+
+        <!-- Page title -->
+        <div class="page-title reveal in">
+          <div>
+            <span class="eyebrow mb-2"><span class="dot"></span>Dealer Zone</span>
+            <h1 class="gradient-text" style="margin-top:8px">Dealer Dashboard</h1>
+            <p>Welcome back, Anil — here's how your brokerage business is performing today.</p>
+          </div>
+          <a href="add-property.html" class="btn btn-primary"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>Add New Property</a>
+        </div>
+
+        <!-- KPI row -->
+        <div class="grid grid-4 mb-4">
+          <div class="kpi reveal">
+            <div class="ic ic-brand"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 4v16"/></svg></div>
+            <div class="label">Total Listings</div>
+            <div class="value"><span data-count="42">0</span></div>
+            <div class="delta up"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l7-7 7 7M12 19V5"/></svg>6 added this month</div>
+          </div>
+          <div class="kpi reveal reveal-d1">
+            <div class="ic ic-accent"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.85"/></svg></div>
+            <div class="label">Customer Leads</div>
+            <div class="value"><span data-count="126">0</span></div>
+            <div class="delta up"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l7-7 7 7M12 19V5"/></svg>18% vs last month</div>
+          </div>
+          <div class="kpi reveal reveal-d2">
+            <div class="ic ic-success"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/><path d="M22 12a10 10 0 1 1-3-7"/></svg></div>
+            <div class="label">Deals Closed</div>
+            <div class="value"><span data-count="28">0</span></div>
+            <div class="delta up"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l7-7 7 7M12 19V5"/></svg>4 closed this week</div>
+          </div>
+          <div class="kpi reveal reveal-d3">
+            <div class="ic ic-gold"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+            <div class="label">Commission Earned</div>
+            <div class="value">₹<span data-count="18.4" data-dec="1">0</span> L</div>
+            <div class="delta up"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l7-7 7 7M12 19V5"/></svg>₹3.2 L this month</div>
+          </div>
+        </div>
+
+        <!-- Performance card -->
+        <div class="card card-pad mb-4 reveal" style="overflow:hidden">
+          <div class="flex items-center justify-between wrap gap-2 mb-3">
+            <div>
+              <h3 class="h3">Performance overview</h3>
+              <p class="muted" style="font-size:.9rem;margin-top:2px">Deals closed &amp; commission earned · last 6 months</p>
+            </div>
+            <div class="flex items-center gap-3 wrap" style="font-size:.82rem">
+              <span class="flex items-center gap-1"><span style="width:12px;height:12px;border-radius:4px;background:var(--grad-brand);display:inline-block"></span>Deals closed</span>
+              <span class="flex items-center gap-1"><span style="width:12px;height:12px;border-radius:4px;background:#cffafe;border:1px solid #a5f3fc;display:inline-block"></span>Commission (₹L)</span>
+              <select class="select" style="width:auto;padding:8px 12px;font-size:.85rem" aria-label="Date range">
+                <option>Last 6 months</option>
+                <option>This year</option>
+                <option>Last 12 months</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Pure-CSS bar chart -->
+          <div class="chart" role="img" aria-label="Bar chart of monthly deals closed from January to June, ranging between 2 and 6 deals">
+            <div class="chart-bars">
+              <!-- Each col: deals bar (brand) + commission bar (soft cyan) -->
+              <div class="bar-col">
+                <div class="bar-pair">
+                  <span class="bar bar-deal" style="height:40%"><b class="bar-val">2</b></span>
+                  <span class="bar bar-comm" style="height:55%"></span>
+                </div>
+                <span class="bar-label">Jan</span>
+              </div>
+              <div class="bar-col">
+                <div class="bar-pair">
+                  <span class="bar bar-deal" style="height:60%"><b class="bar-val">3</b></span>
+                  <span class="bar bar-comm" style="height:48%"></span>
+                </div>
+                <span class="bar-label">Feb</span>
+              </div>
+              <div class="bar-col">
+                <div class="bar-pair">
+                  <span class="bar bar-deal" style="height:80%"><b class="bar-val">4</b></span>
+                  <span class="bar bar-comm" style="height:70%"></span>
+                </div>
+                <span class="bar-label">Mar</span>
+              </div>
+              <div class="bar-col">
+                <div class="bar-pair">
+                  <span class="bar bar-deal" style="height:70%"><b class="bar-val">5</b></span>
+                  <span class="bar bar-comm" style="height:62%"></span>
+                </div>
+                <span class="bar-label">Apr</span>
+              </div>
+              <div class="bar-col">
+                <div class="bar-pair">
+                  <span class="bar bar-deal" style="height:100%"><b class="bar-val">6</b></span>
+                  <span class="bar bar-comm" style="height:88%"></span>
+                </div>
+                <span class="bar-label">May</span>
+              </div>
+              <div class="bar-col">
+                <div class="bar-pair">
+                  <span class="bar bar-deal" style="height:80%"><b class="bar-val">4</b></span>
+                  <span class="bar bar-comm" style="height:95%"></span>
+                </div>
+                <span class="bar-label">Jun</span>
+              </div>
+            </div>
+          </div>
+
+          <hr class="divider">
+          <div class="flex justify-between wrap gap-2" style="font-size:.86rem">
+            <div><span class="muted">Best month</span> <b>May · 6 deals</b></div>
+            <div><span class="muted">Avg. commission / deal</span> <b>₹65,700</b></div>
+            <div><span class="muted">Conversion</span> <b style="color:var(--success)">22.2%</b></div>
+          </div>
+        </div>
+
+        <!-- TWO-COLUMN -->
+        <div class="grid dash-cols">
+
+          <!-- LEFT: Customer Leads table -->
+          <div class="reveal">
+            <div class="flex items-center justify-between mb-3 wrap gap-2">
+              <h3 class="h3">Customer Leads</h3>
+              <div class="chip-row" data-chip-group>
+                <span class="chip active">All</span>
+                <span class="chip">New</span>
+                <span class="chip">Site Visit</span>
+                <span class="chip">Negotiating</span>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Customer</th>
+                    <th>Interested in</th>
+                    <th>Via</th>
+                    <th>Status</th>
+                    <th style="text-align:right">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="leadsBody"><!-- rendered from HM_DATA.LEADS --></tbody>
+              </table>
+            </div>
+            <div class="flex items-center justify-between mt-3 wrap gap-2">
+              <span class="muted" style="font-size:.85rem">Showing 5 of 126 leads</span>
+              <a href="dashboard-dealer.html" class="btn btn-ghost btn-sm">View all leads <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </div>
+
+          <!-- RIGHT: Top listings + Recent deals -->
+          <div class="reveal reveal-d1">
+            <div class="flex items-center justify-between mb-3 wrap gap-2">
+              <h3 class="h3">Top performing listings</h3>
+              <a href="dashboard-dealer.html" class="muted" style="font-size:.85rem;font-weight:600">See all</a>
+            </div>
+            <div class="grid" data-props="2" data-featured style="gap:18px"></div>
+
+            <h3 class="h3 mt-4 mb-3">Recent deals closed</h3>
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Property</th>
+                    <th>Buyer</th>
+                    <th style="text-align:right">Value</th>
+                    <th style="text-align:right">Commission</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div style="font-weight:600">3 BHK · Skyline Heights</div>
+                      <div class="muted" style="font-size:.78rem">Bandra West · 12 May 2026</div>
+                    </td>
+                    <td>Karan Malhotra</td>
+                    <td style="text-align:right;font-weight:600">₹2.45 Cr</td>
+                    <td style="text-align:right;font-weight:700;color:var(--success)">₹1.84 L</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="font-weight:600">2 BHK · Marine Crest</div>
+                      <div class="muted" style="font-size:.78rem">Worli · 02 Jun 2026</div>
+                    </td>
+                    <td>Meera Iyer</td>
+                    <td style="text-align:right;font-weight:600">₹4.20 Cr</td>
+                    <td style="text-align:right;font-weight:700;color:var(--success)">₹3.15 L</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="font-weight:600">1 BHK · Urban Nest</div>
+                      <div class="muted" style="font-size:.78rem">Kharadi, Pune · 05 Jun 2026</div>
+                    </td>
+                    <td>Sahil Verma</td>
+                    <td style="text-align:right;font-weight:600">₹62 L</td>
+                    <td style="text-align:right;font-weight:700;color:var(--success)">₹46,500</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="font-weight:600">2 BHK · Green Valley</div>
+                      <div class="muted" style="font-size:.78rem">Whitefield, Bengaluru · 28 May 2026</div>
+                    </td>
+                    <td>Divya Reddy</td>
+                    <td style="text-align:right;font-weight:600">₹95 L</td>
+                    <td style="text-align:right;font-weight:700;color:var(--success)">₹71,250</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- mobile drawer (sidebar mirror for small screens) -->
+  <div class="drawer">
+    <div class="drawer-bg"></div>
+    <aside class="drawer-panel">
+      <div class="flex items-center justify-between mb-2">
+        <span class="brand"><span class="brand-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8"/></svg></span> Property<b>Mitra</b></span>
+        <button class="icon-btn" data-drawer-close aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+      </div>
+      <a href="dashboard-dealer.html">Dashboard</a>
+      <a href="add-property.html">Add Property</a>
+      <a href="dashboard-dealer.html">Listings</a>
+      <a href="dashboard-dealer.html">Customer Leads</a>
+      <a href="dashboard-dealer.html">Deals</a>
+      <hr class="divider">
+      <a href="refer-earn.html">Refer &amp; Earn</a>
+      <a href="profile.html">My Profile</a>
+      <a href="login.html" class="btn btn-ghost btn-block mt-1">Log out</a>
+    </aside>
+  </div>
+
+  <!-- tiny page-specific styles (one-off layout tweaks only) -->
+  <style>
+    /* two-column dashboard grid that collapses on smaller screens */
+    .dash-cols { grid-template-columns: 1.35fr 1fr; gap: 24px; align-items: start; }
+    @media (max-width: 1180px) { .dash-cols { grid-template-columns: 1fr; } }
+    /* CSS bar chart */
+    .chart { padding-top: 8px; }
+    .chart-bars { display: flex; align-items: flex-end; gap: clamp(10px, 4vw, 36px); height: 220px; padding: 0 4px; }
+    .bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 10px; height: 100%; justify-content: flex-end; }
+    .bar-pair { display: flex; align-items: flex-end; gap: 7px; height: 100%; width: 100%; justify-content: center; }
+    .bar { width: 26px; max-width: 40%; border-radius: 8px 8px 4px 4px; position: relative; transition: filter var(--t-fast); animation: bar-rise .9s var(--ease) both; transform-origin: bottom; }
+    .bar:hover { filter: brightness(1.06) saturate(1.1); }
+    .bar-deal { background: var(--grad-brand); box-shadow: 0 8px 20px -10px rgba(109,94,240,.6); }
+    .bar-comm { background: #cffafe; border: 1px solid #a5f3fc; }
+    .bar-val { position: absolute; top: -22px; left: 50%; transform: translateX(-50%); font-family: var(--font-display); font-weight: 700; font-size: .82rem; color: var(--text); }
+    .bar-label { font-size: .82rem; color: var(--text-soft); font-weight: 600; }
+    @keyframes bar-rise { from { transform: scaleY(0); opacity: .2; } to { transform: scaleY(1); opacity: 1; } }
+    @media (prefers-reduced-motion: reduce) { .bar { animation: none; } }
+    @media (max-width: 480px) { .hide-sm { display: none; } .bar { width: 18px; } }
+  </style>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // ---- Render Customer Leads from shared mock data ----
+    (function () {
+      var D = window.HM_DATA;
+      if (!D) return;
+
+      var statusBadge = {
+        'New': 'badge-accent',
+        'Contacted': 'badge-soft',
+        'Site Visit': 'badge-warn',
+        'Negotiating': 'badge-pink',
+        'Closed': 'badge-success'
+      };
+      var viaBadge = {
+        'Refer & Earn': 'badge-gold',
+        'Search': 'badge-soft',
+        'Virtual Tour': 'badge-accent'
+      };
+
+      var rows = D.LEADS.map(function (l) {
+        var sb = statusBadge[l.status] || 'badge-soft';
+        var vb = viaBadge[l.via] || 'badge-soft';
+        return '' +
+          '<tr>' +
+            '<td><div class="cell-prop">' +
+              '<span class="avatar" style="width:38px;height:38px;font-size:.82rem">' + l.init + '</span>' +
+              '<div><div style="font-weight:600">' + l.name + '</div>' +
+              '<div class="muted" style="font-size:.76rem">' + l.phone + ' · ' + l.when + '</div></div>' +
+            '</div></td>' +
+            '<td>' + l.prop + '</td>' +
+            '<td><span class="badge ' + vb + '">' + l.via + '</span></td>' +
+            '<td><span class="badge ' + sb + '">' + l.status + '</span></td>' +
+            '<td style="text-align:right;white-space:nowrap">' +
+              '<button class="icon-btn" aria-label="Call ' + l.name + '" style="width:34px;height:34px;display:inline-grid;vertical-align:middle">' +
+                '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.1-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></svg>' +
+              '</button> ' +
+              '<button class="icon-btn" aria-label="Message ' + l.name + '" style="width:34px;height:34px;display:inline-grid;vertical-align:middle;margin-left:4px">' +
+                '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>' +
+              '</button>' +
+            '</td>' +
+          '</tr>';
+      }).join('');
+
+      var body = document.getElementById('leadsBody');
+      if (body) body.innerHTML = rows;
+    })();
+  </script>
+</body>
+</html>

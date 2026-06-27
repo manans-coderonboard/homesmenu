@@ -1,0 +1,626 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >
+  HomesMenu — cost-minimal single-instance deployment.
+  One EC2 Docker host (Next.js + Laravel + MySQL) behind two CloudFront
+  distributions (app + S3 assets). No NAT gateway, no ALB, no RDS, no Route 53.
+  See aws/README.md for the deploy flow.
+
+# ---------------------------------------------------------------------------
+Parameters:
+  ProjectName:
+    Type: String
+    Default: homesmenu
+    Description: Prefix used for resource names (ECR repos, S3 bucket, tags).
+    AllowedPattern: "^[a-z][a-z0-9-]{1,30}$"
+
+  InstanceType:
+    Type: String
+    Default: t3.small
+    AllowedValues: [t3.micro, t3.small, t3.medium]
+    Description: >
+      EC2 size. t3.micro = free-tier (tight: ~1GB RAM). t3.small (2GB) is the
+      practical minimum for MySQL + Laravel + Next.js together.
+
+  LatestAmiId:
+    Type: AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
+    Default: /aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64
+    Description: Amazon Linux 2023 x86_64 (resolved automatically; do not change).
+
+  DbDatabase:
+    Type: String
+    Default: homesmenu
+    AllowedPattern: "^[a-zA-Z0-9_]+$"
+
+  DbUsername:
+    Type: String
+    Default: homesmenu
+    AllowedPattern: "^[a-zA-Z0-9_]+$"
+
+  DbPassword:
+    Type: String
+    NoEcho: true
+    MinLength: 12
+    AllowedPattern: "^[A-Za-z0-9]+$"
+    Description: >
+      MySQL app-user password (alphanumeric, >=12). KEEP IT STABLE across stack
+      updates — the data volume is initialised with it on first boot.
+
+  DbRootPassword:
+    Type: String
+    NoEcho: true
+    MinLength: 12
+    AllowedPattern: "^[A-Za-z0-9]+$"
+    Description: MySQL root password (alphanumeric, >=12). Keep stable.
+
+  DataVolumeSizeGb:
+    Type: Number
+    Default: 20
+    MinValue: 8
+    MaxValue: 500
+    Description: gp3 EBS volume for MySQL data (retained on stack delete).
+
+  CloudFrontPriceClass:
+    Type: String
+    Default: PriceClass_200
+    AllowedValues: [PriceClass_100, PriceClass_200, PriceClass_All]
+    Description: >
+      PriceClass_200 covers India/Asia edges (best for this market).
+      PriceClass_100 (US/EU only) is marginally cheaper at high traffic.
+
+  CloudFrontPrefixListId:
+    Type: String
+    Default: ""
+    Description: >
+      CloudFront origin-facing managed prefix list id (pl-xxxx) used to lock the
+      EC2 security group so only CloudFront can reach ports 3000/8000. The deploy
+      script fills this automatically. Leave blank to open those ports to
+      0.0.0.0/0 (functional, but less secure).
+
+  KeyPairName:
+    Type: String
+    Default: ""
+    Description: >
+      Optional EC2 key pair for SSH. Leave blank to manage the box via SSM
+      Session Manager only (recommended — no inbound SSH port needed).
+
+  SshLocationCidr:
+    Type: String
+    Default: "0.0.0.0/0"
+    Description: CIDR allowed to SSH (only used when KeyPairName is set).
+
+# ---------------------------------------------------------------------------
+Conditions:
+  HasPrefixList: !Not [!Equals [!Ref CloudFrontPrefixListId, ""]]
+  NoPrefixList: !Equals [!Ref CloudFrontPrefixListId, ""]
+  HasKeyPair: !Not [!Equals [!Ref KeyPairName, ""]]
+
+# ---------------------------------------------------------------------------
+Resources:
+
+  # ---------- Networking (single public subnet, no NAT) ----------
+  Vpc:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.20.0.0/16
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+      Tags: [{ Key: Name, Value: !Sub "${ProjectName}-vpc" }]
+
+  InternetGateway:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags: [{ Key: Name, Value: !Sub "${ProjectName}-igw" }]
+
+  VpcGatewayAttachment:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId: !Ref Vpc
+      InternetGatewayId: !Ref InternetGateway
+
+  PublicSubnet:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref Vpc
+      CidrBlock: 10.20.1.0/24
+      AvailabilityZone: !Select [0, !GetAZs ""]
+      MapPublicIpOnLaunch: true
+      Tags: [{ Key: Name, Value: !Sub "${ProjectName}-public" }]
+
+  PublicRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref Vpc
+      Tags: [{ Key: Name, Value: !Sub "${ProjectName}-public-rt" }]
+
+  PublicRoute:
+    Type: AWS::EC2::Route
+    DependsOn: VpcGatewayAttachment
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref InternetGateway
+
+  PublicSubnetRouteAssoc:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PublicSubnet
+      RouteTableId: !Ref PublicRouteTable
+
+  # ---------- Security group (origin = CloudFront only) ----------
+  InstanceSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: !Sub "${ProjectName} EC2 - CloudFront origin and optional SSH"
+      VpcId: !Ref Vpc
+      Tags: [{ Key: Name, Value: !Sub "${ProjectName}-sg" }]
+
+  IngressFrontendPrefix:
+    Type: AWS::EC2::SecurityGroupIngress
+    Condition: HasPrefixList
+    Properties:
+      GroupId: !Ref InstanceSecurityGroup
+      IpProtocol: tcp
+      FromPort: 3000
+      ToPort: 3000
+      SourcePrefixListId: !Ref CloudFrontPrefixListId
+      Description: Next.js from CloudFront
+
+  IngressBackendPrefix:
+    Type: AWS::EC2::SecurityGroupIngress
+    Condition: HasPrefixList
+    Properties:
+      GroupId: !Ref InstanceSecurityGroup
+      IpProtocol: tcp
+      FromPort: 8000
+      ToPort: 8000
+      SourcePrefixListId: !Ref CloudFrontPrefixListId
+      Description: Laravel API from CloudFront
+
+  IngressFrontendOpen:
+    Type: AWS::EC2::SecurityGroupIngress
+    Condition: NoPrefixList
+    Properties:
+      GroupId: !Ref InstanceSecurityGroup
+      IpProtocol: tcp
+      FromPort: 3000
+      ToPort: 3000
+      CidrIp: 0.0.0.0/0
+      Description: Next.js (open — set CloudFrontPrefixListId to lock down)
+
+  IngressBackendOpen:
+    Type: AWS::EC2::SecurityGroupIngress
+    Condition: NoPrefixList
+    Properties:
+      GroupId: !Ref InstanceSecurityGroup
+      IpProtocol: tcp
+      FromPort: 8000
+      ToPort: 8000
+      CidrIp: 0.0.0.0/0
+      Description: Laravel API (open — set CloudFrontPrefixListId to lock down)
+
+  IngressSsh:
+    Type: AWS::EC2::SecurityGroupIngress
+    Condition: HasKeyPair
+    Properties:
+      GroupId: !Ref InstanceSecurityGroup
+      IpProtocol: tcp
+      FromPort: 22
+      ToPort: 22
+      CidrIp: !Ref SshLocationCidr
+      Description: SSH
+
+  # ---------- S3 uploads bucket (private, served via CloudFront OAC) ----------
+  UploadsBucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      BucketName: !Sub "${ProjectName}-uploads-${AWS::AccountId}-${AWS::Region}"
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerEnforced
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+
+  UploadsBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref UploadsBucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: AllowCloudFrontRead
+            Effect: Allow
+            Principal:
+              Service: cloudfront.amazonaws.com
+            Action: s3:GetObject
+            Resource: !Sub "arn:aws:s3:::${UploadsBucket}/*"
+            Condition:
+              StringEquals:
+                AWS:SourceArn: !Sub "arn:aws:cloudfront::${AWS::AccountId}:distribution/${AssetsDistribution}"
+
+  # ---------- CloudFront: ASSETS (S3 origin via OAC) ----------
+  AssetsOAC:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Name: !Sub "${ProjectName}-assets-oac"
+        OriginAccessControlOriginType: s3
+        SigningBehavior: always
+        SigningProtocol: sigv4
+
+  AssetsDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Comment: !Sub "${ProjectName} uploaded assets (S3)"
+        Enabled: true
+        PriceClass: !Ref CloudFrontPriceClass
+        HttpVersion: http2and3
+        Origins:
+          - Id: s3-uploads
+            DomainName: !GetAtt UploadsBucket.RegionalDomainName
+            OriginAccessControlId: !GetAtt AssetsOAC.Id
+            S3OriginConfig:
+              OriginAccessIdentity: ""
+        DefaultCacheBehavior:
+          TargetOriginId: s3-uploads
+          ViewerProtocolPolicy: redirect-to-https
+          AllowedMethods: [GET, HEAD, OPTIONS]
+          CachedMethods: [GET, HEAD, OPTIONS]
+          Compress: true
+          # Managed-CachingOptimized
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
+
+  # ---------- CloudFront: APP (EC2 custom origin, 2 ports) ----------
+  AppDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Comment: !Sub "${ProjectName} app (Next.js + Laravel API)"
+        Enabled: true
+        PriceClass: !Ref CloudFrontPriceClass
+        HttpVersion: http2and3
+        Origins:
+          - Id: ec2-frontend
+            DomainName: !GetAtt Instance.PublicDnsName
+            CustomOriginConfig:
+              HTTPPort: 3000
+              OriginProtocolPolicy: http-only
+              OriginSSLProtocols: [TLSv1.2]
+              OriginReadTimeout: 30
+          - Id: ec2-backend
+            DomainName: !GetAtt Instance.PublicDnsName
+            CustomOriginConfig:
+              HTTPPort: 8000
+              OriginProtocolPolicy: http-only
+              OriginSSLProtocols: [TLSv1.2]
+              OriginReadTimeout: 30
+        DefaultCacheBehavior:
+          TargetOriginId: ec2-frontend
+          ViewerProtocolPolicy: redirect-to-https
+          AllowedMethods: [GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE]
+          CachedMethods: [GET, HEAD, OPTIONS]
+          Compress: true
+          # Managed-CachingDisabled (dynamic SSR)
+          CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad
+          # Managed-AllViewer (forward all headers/cookies/query to origin)
+          OriginRequestPolicyId: 216adef6-5c7f-47e4-b989-5492eafa07d3
+        CacheBehaviors:
+          - PathPattern: /api/*
+            TargetOriginId: ec2-backend
+            ViewerProtocolPolicy: redirect-to-https
+            AllowedMethods: [GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE]
+            CachedMethods: [GET, HEAD, OPTIONS]
+            Compress: true
+            CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad
+            OriginRequestPolicyId: 216adef6-5c7f-47e4-b989-5492eafa07d3
+          - PathPattern: /_next/static/*
+            TargetOriginId: ec2-frontend
+            ViewerProtocolPolicy: redirect-to-https
+            AllowedMethods: [GET, HEAD, OPTIONS]
+            CachedMethods: [GET, HEAD, OPTIONS]
+            Compress: true
+            # immutable build assets — cache hard
+            CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
+
+  # ---------- ECR repositories ----------
+  BackendRepo:
+    Type: AWS::ECR::Repository
+    DeletionPolicy: Delete
+    Properties:
+      RepositoryName: !Sub "${ProjectName}-backend"
+      EmptyOnDelete: true
+      ImageScanningConfiguration:
+        ScanOnPush: true
+      LifecyclePolicy:
+        LifecyclePolicyText: |
+          {
+            "rules": [
+              {
+                "rulePriority": 1,
+                "description": "keep last 5 images",
+                "selection": { "tagStatus": "any", "countType": "imageCountMoreThan", "countNumber": 5 },
+                "action": { "type": "expire" }
+              }
+            ]
+          }
+
+  FrontendRepo:
+    Type: AWS::ECR::Repository
+    DeletionPolicy: Delete
+    Properties:
+      RepositoryName: !Sub "${ProjectName}-frontend"
+      EmptyOnDelete: true
+      ImageScanningConfiguration:
+        ScanOnPush: true
+      LifecyclePolicy:
+        LifecyclePolicyText: |
+          {
+            "rules": [
+              {
+                "rulePriority": 1,
+                "description": "keep last 5 images",
+                "selection": { "tagStatus": "any", "countType": "imageCountMoreThan", "countNumber": 5 },
+                "action": { "type": "expire" }
+              }
+            ]
+          }
+
+  # ---------- IAM (instance role: S3 + ECR pull + SSM) ----------
+  InstanceRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal: { Service: ec2.amazonaws.com }
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+      Policies:
+        - PolicyName: uploads-s3
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: [s3:ListBucket]
+                Resource: !Sub "arn:aws:s3:::${UploadsBucket}"
+              - Effect: Allow
+                Action: [s3:GetObject, s3:PutObject, s3:DeleteObject]
+                Resource: !Sub "arn:aws:s3:::${UploadsBucket}/*"
+        - PolicyName: ecr-pull
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: ecr:GetAuthorizationToken
+                Resource: "*"
+              - Effect: Allow
+                Action:
+                  - ecr:BatchGetImage
+                  - ecr:GetDownloadUrlForLayer
+                  - ecr:BatchCheckLayerAvailability
+                Resource:
+                  - !GetAtt BackendRepo.Arn
+                  - !GetAtt FrontendRepo.Arn
+
+  InstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Roles: [!Ref InstanceRole]
+
+  # ---------- MySQL data volume (retained) ----------
+  DataVolume:
+    Type: AWS::EC2::Volume
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      AvailabilityZone: !Select [0, !GetAZs ""]
+      Size: !Ref DataVolumeSizeGb
+      VolumeType: gp3
+      Encrypted: true
+      Tags: [{ Key: Name, Value: !Sub "${ProjectName}-mysql-data" }]
+
+  VolumeAttachment:
+    Type: AWS::EC2::VolumeAttachment
+    Properties:
+      Device: /dev/sdf
+      InstanceId: !Ref Instance
+      VolumeId: !Ref DataVolume
+
+  # ---------- EC2 Docker host ----------
+  Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: !Ref InstanceType
+      ImageId: !Ref LatestAmiId
+      IamInstanceProfile: !Ref InstanceProfile
+      SubnetId: !Ref PublicSubnet
+      SecurityGroupIds: [!Ref InstanceSecurityGroup]
+      KeyName: !If [HasKeyPair, !Ref KeyPairName, !Ref "AWS::NoValue"]
+      MetadataOptions:
+        HttpEndpoint: enabled
+        HttpTokens: required
+        HttpPutResponseHopLimit: 2   # let the Docker container reach IMDS for the role
+      BlockDeviceMappings:
+        - DeviceName: /dev/xvda
+          Ebs:
+            VolumeSize: 10
+            VolumeType: gp3
+            DeleteOnTermination: true
+      Tags: [{ Key: Name, Value: !Sub "${ProjectName}-host" }]
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          set -xe
+          exec > /var/log/homesmenu-bootstrap.log 2>&1
+
+          REGION=${AWS::Region}
+          ACCOUNT=${AWS::AccountId}
+          BUCKET=${UploadsBucket}
+          ASSETS_DOMAIN=${AssetsDistribution.DomainName}
+          BACKEND_IMAGE=${BackendRepo.RepositoryUri}:latest
+          FRONTEND_IMAGE=${FrontendRepo.RepositoryUri}:latest
+          DB_NAME=${DbDatabase}
+          DB_USER=${DbUsername}
+          DB_PASS=${DbPassword}
+          DB_ROOT_PASS=${DbRootPassword}
+
+          # --- packages ---
+          dnf update -y
+          dnf install -y docker unzip openssl
+          systemctl enable --now docker
+
+          # docker compose plugin
+          mkdir -p /usr/local/lib/docker/cli-plugins
+          curl -fsSL https://github.com/docker/compose/releases/download/v2.32.4/docker-compose-linux-x86_64 \
+            -o /usr/local/lib/docker/cli-plugins/docker-compose
+          chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
+
+          # awscli v2
+          curl -fsSL https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip -o /tmp/awscliv2.zip
+          unzip -q /tmp/awscliv2.zip -d /tmp
+          /tmp/aws/install
+          export PATH=$PATH:/usr/local/bin
+
+          # --- mount the data EBS volume for MySQL ---
+          DEV=/dev/nvme1n1
+          for i in $(seq 1 30); do
+            if [ -b "$DEV" ]; then break; fi
+            if [ -b /dev/xvdf ]; then DEV=/dev/xvdf; break; fi
+            sleep 5
+          done
+          if ! blkid "$DEV"; then mkfs.ext4 -F "$DEV"; fi
+          mkdir -p /data
+          grep -q " /data " /etc/fstab || echo "$DEV /data ext4 defaults,nofail 0 2" >> /etc/fstab
+          mount -a || mount "$DEV" /data
+          mkdir -p /data/mysql
+
+          # --- ECR login ---
+          aws ecr get-login-password --region "$REGION" \
+            | docker login --username AWS --password-stdin "$ACCOUNT.dkr.ecr.$REGION.amazonaws.com"
+
+          # --- app config (env_file keeps the generated APP_KEY stable on disk) ---
+          mkdir -p /opt/homesmenu
+          APP_KEY="base64:$(openssl rand -base64 32)"
+          cat > /opt/homesmenu/app.env <<APPENV
+          APP_NAME=HomesMenu
+          APP_ENV=production
+          APP_DEBUG=false
+          APP_KEY=$APP_KEY
+          LOG_CHANNEL=stderr
+          DB_CONNECTION=mysql
+          DB_HOST=db
+          DB_PORT=3306
+          DB_DATABASE=$DB_NAME
+          DB_USERNAME=$DB_USER
+          DB_PASSWORD=$DB_PASS
+          FILESYSTEM_DISK=s3
+          AWS_DEFAULT_REGION=$REGION
+          AWS_BUCKET=$BUCKET
+          AWS_URL=https://$ASSETS_DOMAIN
+          AWS_USE_PATH_STYLE_ENDPOINT=false
+          CORS_ALLOWED_ORIGINS=*
+          SESSION_DRIVER=file
+          QUEUE_CONNECTION=sync
+          CACHE_STORE=file
+          APPENV
+
+          cat > /opt/homesmenu/docker-compose.yml <<COMPOSE
+          services:
+            db:
+              image: mysql:8.0
+              restart: unless-stopped
+              environment:
+                MYSQL_DATABASE: $DB_NAME
+                MYSQL_USER: $DB_USER
+                MYSQL_PASSWORD: $DB_PASS
+                MYSQL_ROOT_PASSWORD: $DB_ROOT_PASS
+              volumes:
+                - /data/mysql:/var/lib/mysql
+              healthcheck:
+                test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p$DB_ROOT_PASS"]
+                interval: 10s
+                timeout: 5s
+                retries: 20
+            backend:
+              image: $BACKEND_IMAGE
+              restart: unless-stopped
+              depends_on:
+                db:
+                  condition: service_healthy
+              env_file: [/opt/homesmenu/app.env]
+              # also mount as .env so the entrypoint sees APP_KEY and skips key:generate
+              volumes:
+                - /opt/homesmenu/app.env:/var/www/.env:ro
+              ports:
+                - "8000:8000"
+            frontend:
+              image: $FRONTEND_IMAGE
+              restart: unless-stopped
+              depends_on:
+                - backend
+              ports:
+                - "3000:3000"
+          COMPOSE
+
+          # reusable redeploy helper (invoked over SSM after images are pushed)
+          cat > /usr/local/bin/homesmenu-deploy <<'DEPLOY'
+          #!/bin/bash
+          set -e
+          REGION=$(curl -s http://169.254.169.254/latest/meta-data/placement/region || echo ap-south-1)
+          ACCOUNT=$(aws sts get-caller-identity --query Account --output text)
+          aws ecr get-login-password --region "$REGION" \
+            | docker login --username AWS --password-stdin "$ACCOUNT.dkr.ecr.$REGION.amazonaws.com"
+          cd /opt/homesmenu
+          docker compose pull
+          docker compose up -d
+          docker image prune -f || true
+          DEPLOY
+          chmod +x /usr/local/bin/homesmenu-deploy
+
+          # first attempt — no-ops cleanly until images are pushed to ECR
+          cd /opt/homesmenu
+          docker compose pull || true
+          docker compose up -d || true
+
+  # ---------------------------------------------------------------------------
+Outputs:
+  AppUrl:
+    Description: Public app URL (Next.js + /api). Use this in the browser.
+    Value: !Sub "https://${AppDistribution.DomainName}"
+
+  ApiBaseForFrontendBuild:
+    Description: Pass as NEXT_PUBLIC_API_URL build-arg when building the frontend image.
+    Value: !Sub "https://${AppDistribution.DomainName}/api"
+
+  AssetsUrl:
+    Description: CloudFront URL for S3 uploads (== backend AWS_URL).
+    Value: !Sub "https://${AssetsDistribution.DomainName}"
+
+  UploadsBucketName:
+    Value: !Ref UploadsBucket
+
+  BackendEcrUri:
+    Value: !GetAtt BackendRepo.RepositoryUri
+
+  FrontendEcrUri:
+    Value: !GetAtt FrontendRepo.RepositoryUri
+
+  InstanceId:
+    Value: !Ref Instance
+
+  InstancePublicDns:
+    Value: !GetAtt Instance.PublicDnsName
+
+  Region:
+    Value: !Ref AWS::Region
